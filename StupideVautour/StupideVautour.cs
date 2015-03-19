@@ -14,12 +14,12 @@ namespace StupideVautour
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Game
+    public class StupideVautour : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public Game1()
+        public StupideVautour()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
