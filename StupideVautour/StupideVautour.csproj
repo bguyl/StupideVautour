@@ -35,6 +35,11 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameCore\Cards\PlayerCard.cs" />
+    <Compile Include="GameCore\Cards\PointCard.cs" />
+    <Compile Include="GameCore\Players\AI.cs" />
+    <Compile Include="GameCore\Players\Human.cs" />
+    <Compile Include="GameCore\Players\Player.cs" />
     <Compile Include="StupideVautour.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\" />
+    <Folder Include="GameCore\GameStates\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
