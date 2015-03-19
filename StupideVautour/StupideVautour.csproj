@@ -40,6 +40,7 @@
     <Compile Include="GameCore\Cards\PlayerCard.cs" />
     <Compile Include="GameCore\Cards\PointCard.cs" />
     <Compile Include="GameCore\Color.cs" />
+    <Compile Include="GameCore\Engine.cs" />
     <Compile Include="GameCore\Players\AI.cs" />
     <Compile Include="GameCore\Players\Human.cs" />
     <Compile Include="GameCore\Players\Player.cs" />

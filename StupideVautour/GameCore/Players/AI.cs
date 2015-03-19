@@ -5,8 +5,11 @@ using System.Text;
 
 namespace StupideVautour.GameCore.Players
 {
-    class AI
+    public class AI : Player
     {
-       
+       public AI(Color color) : base(color)
+        {
+
+        }
     }
 }

@@ -7,22 +7,22 @@ namespace StupideVautour.GameCore.Cards
 {
     public class PointCard
     {
-        CardType type;
-        short value;
+        private CardType type;
+        private int value;
 
-        PointCard(CardType type, short value)
+        public PointCard(CardType type, int value)
         {
             this.type = type;
             this.value = value;
         }
 
-        CardType Type
+        public CardType Type
         {
             set { type = value;}
             get { return type; }
         }
 
-        short Value {
+        public int Value {
             set { this.value = value; }
             get { return value; }
         }
