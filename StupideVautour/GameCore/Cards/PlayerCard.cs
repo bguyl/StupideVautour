@@ -22,7 +22,7 @@ namespace StupideVautour.GameCore.Cards
             get { return color; }
         }
 
-        short Value
+        ushort Value
         {
             set { this.value = value; }
             get { return value; }

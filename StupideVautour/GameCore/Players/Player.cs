@@ -12,7 +12,7 @@ namespace StupideVautour.GameCore.Players
         protected Color color;
         protected List<PlayerCard> remainingCards;
         protected List<PointCard> wonCards;
-        private static const int amountCard = 15;
+        private const int amountCard = 15;
 
         public Player(Color playerColor)
         {

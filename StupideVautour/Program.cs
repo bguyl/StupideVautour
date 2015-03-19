@@ -18,7 +18,7 @@ namespace StupideVautour
         [STAThread]
         static void Main()
         {
-            using (var game = new StupideVautour())
+            using (var game = new GameStateHandler())
                 game.Run();
         }
     }
