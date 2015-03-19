@@ -35,6 +35,7 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameCore\Cards\CardType.cs" />
     <Compile Include="GameCore\Cards\PlayerCard.cs" />
     <Compile Include="GameCore\Cards\PointCard.cs" />
     <Compile Include="GameCore\Players\AI.cs" />
