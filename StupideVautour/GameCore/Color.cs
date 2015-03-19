@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace StupideVautour.GameCore.Players
+namespace StupideVautour.GameCore
 {
-    class AI
+    public enum Color
     {
-       
+        Red,Blue,Green,Yellow,Purple,
+        
     }
 }
