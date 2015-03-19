@@ -32,6 +32,7 @@ namespace StupideVautour.GameCore
         {
             this.players = players;
             nbPlayers = this.players.Count();
+            this.stack = new List<PointCard>();
         }
 
         public List<Player> Players
