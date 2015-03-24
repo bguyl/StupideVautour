@@ -63,6 +63,16 @@
     <Folder Include="Content\" />
     <Folder Include="GameCore\GameStates\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Documents\sparklinlabs-nuclearwinter-032831044909\sparklinlabs-nuclearwinter-032831044909\NuclearSample\NuclearSample\NuclearSample.XNA.csproj">
+      <Project>{9027822d-280e-4306-baf1-f5b2c03d951c}</Project>
+      <Name>NuclearSample.XNA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Documents\sparklinlabs-nuclearwinter-032831044909\sparklinlabs-nuclearwinter-032831044909\NuclearWinter\NuclearWinter.XNA.csproj">
+      <Project>{2f2a1e2c-560b-44d3-b693-ffb05d271c53}</Project>
+      <Name>NuclearWinter.XNA</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

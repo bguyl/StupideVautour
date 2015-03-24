@@ -16,9 +16,11 @@ namespace StupideVautour.GameCore
 
         private List<Player> players;
         private int nbPlayers;
-        private List<PointCard> stack;   
+        private List<PointCard> stack;
+        private PointCard currentCard;
         private const int nbMice = 10;
         private const int nbVultures = 5;
+        
 
         public List<PointCard> Stack
         {
@@ -76,6 +78,21 @@ namespace StupideVautour.GameCore
         {
 
         }
+
+        public Boolean EndingTest()
+        {
+            if (stack.Count() == 0)
+                return true;
+            else
+                return false;
+        }
+
+        public void DrawCard()
+        {
+            currentCard = stack[0];
+            stack.Remove(currentCard);
+        }
+
 
         public void Initialize()
         {
