@@ -9,6 +9,7 @@ namespace StupideVautour.GameCore.Cards
     {
         Color color;
         ushort value;
+        Boolean faceDown;
 
         public PlayerCard(Color color, ushort value) {
             this.color = color;
@@ -16,13 +17,13 @@ namespace StupideVautour.GameCore.Cards
         }
 
 
-        Color Color
+        public Color Color
         {
             set { color = value; }
             get { return color; }
         }
 
-        ushort Value
+        public ushort Value
         {
             set { this.value = value; }
             get { return value; }

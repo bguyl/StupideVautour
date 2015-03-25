@@ -93,6 +93,29 @@ namespace StupideVautour.GameCore
             stack.Remove(currentCard);
         }
 
+        public Player TurnWinner()
+        {
+            int min = 16, max = 0;
+            Player playMin = null,playMax = null;
+            for(int i=0; i < players.Count();i++)
+            {
+                if (players[i].CurrentPlayerCard.Value < min)
+                {
+                    playMin = players[i];
+                    min = players[i].CurrentPlayerCard.Value;
+                }
+                else if (players[i].CurrentPlayerCard.Value > max)
+                {
+                    playMax = players[i];  
+                    max = players[i].CurrentPlayerCard.Value;
+                }
+
+            }
+            if (currentCard.Type == CardType.Mouse)
+                return playMax;
+            else
+                return playMin;
+        }
 
         public void Initialize()
         {
