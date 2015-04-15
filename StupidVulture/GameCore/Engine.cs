@@ -36,7 +36,6 @@ namespace StupidVulture.GameCore
         public List<Player> Players
         {
             get { return players; }
-            
         }
         
         public int AmountPlayers
@@ -111,6 +110,7 @@ namespace StupidVulture.GameCore
             {
                 players[i].Play();
             }
+            Player winner = TurnWinner();
         }
 
         public Player TurnWinner()

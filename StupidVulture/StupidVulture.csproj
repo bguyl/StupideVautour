@@ -56,6 +56,8 @@
     <Compile Include="GameCore\Color.cs" />
     <Compile Include="GameCore\Engine.cs" />
     <Compile Include="GameCore\Players\AI.cs" />
+    <Compile Include="GameCore\Players\AI_Tools\Clone.cs" />
+    <Compile Include="GameCore\Players\AI_Tools\UCB.cs" />
     <Compile Include="GameCore\Players\Human.cs" />
     <Compile Include="GameCore\Players\Player.cs" />
     <Compile Include="Program.cs" />
@@ -109,6 +111,7 @@
   <ItemGroup>
     <None Include="Images\None.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
