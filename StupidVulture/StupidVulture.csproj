@@ -93,7 +93,9 @@
     <None Include="Images\Texture2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\Easy.png" />
+    <None Include="Images\Easy.png">
+      <CustomToolNamespace>Images</CustomToolNamespace>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Hard.png" />

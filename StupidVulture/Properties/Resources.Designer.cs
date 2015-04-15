@@ -153,16 +153,6 @@ namespace StupidVulture.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Texture {
-            get {
-                object obj = ResourceManager.GetObject("Texture", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Texture2 {
             get {
                 object obj = ResourceManager.GetObject("Texture2", resourceCulture);

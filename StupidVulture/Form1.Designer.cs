@@ -68,7 +68,7 @@
             resources.ApplyResources(this.joueur1, "joueur1");
             this.joueur1.Name = "joueur1";
             this.joueur1.TabStop = false;
-            this.joueur1.Click += new System.EventHandler(this.joueur1_Click);
+            this.joueur1.Click += new System.EventHandler(this.joueurX_Click);
             // 
             // joueur2
             // 
@@ -76,7 +76,7 @@
             resources.ApplyResources(this.joueur2, "joueur2");
             this.joueur2.Name = "joueur2";
             this.joueur2.TabStop = false;
-            this.joueur2.Click += new System.EventHandler(this.joueur2_Click);
+            this.joueur2.Click += new System.EventHandler(this.joueurX_Click);
             // 
             // joueur3
             // 
@@ -84,7 +84,7 @@
             resources.ApplyResources(this.joueur3, "joueur3");
             this.joueur3.Name = "joueur3";
             this.joueur3.TabStop = false;
-            this.joueur3.Click += new System.EventHandler(this.joueur3_Click);
+            this.joueur3.Click += new System.EventHandler(this.joueurX_Click);
             // 
             // joueur4
             // 
@@ -92,7 +92,7 @@
             resources.ApplyResources(this.joueur4, "joueur4");
             this.joueur4.Name = "joueur4";
             this.joueur4.TabStop = false;
-            this.joueur4.Click += new System.EventHandler(this.joueur4_Click);
+            this.joueur4.Click += new System.EventHandler(this.joueurX_Click);
             // 
             // joueur5
             // 
@@ -100,7 +100,7 @@
             resources.ApplyResources(this.joueur5, "joueur5");
             this.joueur5.Name = "joueur5";
             this.joueur5.TabStop = false;
-            this.joueur5.Click += new System.EventHandler(this.joueur5_Click);
+            this.joueur5.Click += new System.EventHandler(this.joueurX_Click);
             // 
             // label1
             // 
