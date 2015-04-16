@@ -7,7 +7,7 @@ using StupidVulture.GameCore.Cards;
 
 namespace StupidVulture.GameCore
 {
-    class Engine
+    public class Engine
     {
 
         private List<Player> players;

@@ -18,11 +18,11 @@ namespace StupidVulture
     {
 
 
-        Bitmap _human = Resources.Human;
-        Bitmap _easy = Resources.Easy;
-        Bitmap _medium = Resources.Medium;
-        Bitmap _hard = Resources.Hard;
-        Bitmap _none = Resources.None;
+        private Bitmap _human = Resources.Human;
+        private Bitmap _easy = Resources.Easy;
+        private Bitmap _medium = Resources.Medium;
+        private Bitmap _hard = Resources.Hard;
+        private Bitmap _none = Resources.None;
 
         public Menu()
         {
@@ -63,6 +63,12 @@ namespace StupidVulture
 
 
             Engine engine = new Engine(players);
+            Game form = new Game(engine);
+            this.Hide();
+            form.Show();
+            
+
+
 
         }
 
