@@ -25,8 +25,6 @@ namespace StupidVulture.GameCore.Players
             {
                 remainingCards.Add(new PlayerCard(Color, i));
             }
-
-
         }
 
         
@@ -60,10 +58,11 @@ namespace StupidVulture.GameCore.Players
             set { currentPlayerCard = value; }
         }
 
-        public virtual void Play()
+        public virtual PlayerCard Play()
         {
             currentPlayerCard = remainingCards.Last();
             remainingCards.Remove(currentPlayerCard);
+            return currentPlayerCard;
         }
         
     }

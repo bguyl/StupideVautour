@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="LaunchButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>582, 448</value>
+    <value>376, 502</value>
   </data>
   <data name="LaunchButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -148,7 +148,7 @@
     <value>11</value>
   </data>
   <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>513, 432</value>
+    <value>218, 502</value>
   </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 23</value>
@@ -172,7 +172,7 @@
     <value>10</value>
   </data>
   <data name="joueur1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 207</value>
+    <value>173, 308</value>
   </data>
   <data name="joueur1.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 100</value>
@@ -193,7 +193,7 @@
     <value>9</value>
   </data>
   <data name="joueur2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>237, 207</value>
+    <value>376, 308</value>
   </data>
   <data name="joueur2.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 100</value>
@@ -214,7 +214,7 @@
     <value>8</value>
   </data>
   <data name="joueur3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>409, 207</value>
+    <value>582, 308</value>
   </data>
   <data name="joueur3.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 100</value>
@@ -235,7 +235,7 @@
     <value>7</value>
   </data>
   <data name="joueur4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>573, 207</value>
+    <value>792, 308</value>
   </data>
   <data name="joueur4.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 100</value>
@@ -256,7 +256,7 @@
     <value>6</value>
   </data>
   <data name="joueur5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>754, 207</value>
+    <value>988, 308</value>
   </data>
   <data name="joueur5.Size" type="System.Drawing.Size, System.Drawing">
     <value>108, 100</value>
@@ -280,7 +280,7 @@
     <value>True</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>71, 149</value>
+    <value>202, 259</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 13</value>
@@ -307,7 +307,7 @@
     <value>True</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>255, 145</value>
+    <value>403, 259</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 13</value>
@@ -334,7 +334,7 @@
     <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>426, 146</value>
+    <value>613, 259</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 13</value>
@@ -361,7 +361,7 @@
     <value>True</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>595, 146</value>
+    <value>818, 259</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 13</value>
@@ -388,7 +388,7 @@
     <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>766, 152</value>
+    <value>1015, 259</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 13</value>
@@ -421,7 +421,7 @@
     <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1047, 535</value>
+    <value>1366, 768</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>StupidVulture</value>
