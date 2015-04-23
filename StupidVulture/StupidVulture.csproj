@@ -70,9 +70,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -121,7 +123,97 @@
     <None Include="Images\None.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\CardsBack.png" />
+    <Content Include="Images\Cards\Blue\Blue1.png" />
+    <Content Include="Images\Cards\Blue\Blue10.png" />
+    <Content Include="Images\Cards\Blue\Blue11.png" />
+    <Content Include="Images\Cards\Blue\Blue12.png" />
+    <Content Include="Images\Cards\Blue\Blue13.png" />
+    <Content Include="Images\Cards\Blue\Blue14.png" />
+    <Content Include="Images\Cards\Blue\Blue15.png" />
+    <Content Include="Images\Cards\Blue\Blue2.png" />
+    <Content Include="Images\Cards\Blue\Blue3.png" />
+    <Content Include="Images\Cards\Blue\Blue4.png" />
+    <Content Include="Images\Cards\Blue\Blue5.png" />
+    <Content Include="Images\Cards\Blue\Blue6.png" />
+    <Content Include="Images\Cards\Blue\Blue7.png" />
+    <Content Include="Images\Cards\Blue\Blue8.png" />
+    <Content Include="Images\Cards\Blue\Blue9.png" />
+    <Content Include="Images\Cards\CardsBack.png" />
+    <Content Include="Images\Cards\Green\Green1.png" />
+    <Content Include="Images\Cards\Green\Green10.png" />
+    <Content Include="Images\Cards\Green\Green11.png" />
+    <Content Include="Images\Cards\Green\Green12.png" />
+    <Content Include="Images\Cards\Green\Green13.png" />
+    <Content Include="Images\Cards\Green\Green14.png" />
+    <Content Include="Images\Cards\Green\Green15.png" />
+    <Content Include="Images\Cards\Green\Green2.png" />
+    <Content Include="Images\Cards\Green\Green3.png" />
+    <Content Include="Images\Cards\Green\Green4.png" />
+    <Content Include="Images\Cards\Green\Green5.png" />
+    <Content Include="Images\Cards\Green\Green6.png" />
+    <Content Include="Images\Cards\Green\Green7.png" />
+    <Content Include="Images\Cards\Green\Green8.png" />
+    <Content Include="Images\Cards\Green\Green9.png" />
+    <Content Include="Images\Cards\Mice\mice1.png" />
+    <Content Include="Images\Cards\Mice\mice10.png" />
+    <Content Include="Images\Cards\Mice\mice2.png" />
+    <Content Include="Images\Cards\Mice\mice3.png" />
+    <Content Include="Images\Cards\Mice\mice4.png" />
+    <Content Include="Images\Cards\Mice\mice5.png" />
+    <Content Include="Images\Cards\Mice\mice6.png" />
+    <Content Include="Images\Cards\Mice\mice7.png" />
+    <Content Include="Images\Cards\Mice\mice8.png" />
+    <Content Include="Images\Cards\Mice\mice9.png" />
+    <Content Include="Images\Cards\Purple\Purple1.png" />
+    <Content Include="Images\Cards\Purple\Purple10.png" />
+    <Content Include="Images\Cards\Purple\Purple11.png" />
+    <Content Include="Images\Cards\Purple\Purple12.png" />
+    <Content Include="Images\Cards\Purple\Purple13.png" />
+    <Content Include="Images\Cards\Purple\Purple14.png" />
+    <Content Include="Images\Cards\Purple\Purple15.png" />
+    <Content Include="Images\Cards\Purple\Purple2.png" />
+    <Content Include="Images\Cards\Purple\Purple3.png" />
+    <Content Include="Images\Cards\Purple\Purple4.png" />
+    <Content Include="Images\Cards\Purple\Purple5.png" />
+    <Content Include="Images\Cards\Purple\Purple6.png" />
+    <Content Include="Images\Cards\Purple\Purple7.png" />
+    <Content Include="Images\Cards\Purple\Purple8.png" />
+    <Content Include="Images\Cards\Purple\Purple9.png" />
+    <Content Include="Images\Cards\Red\Red1.png" />
+    <Content Include="Images\Cards\Red\Red10.png" />
+    <Content Include="Images\Cards\Red\Red11.png" />
+    <Content Include="Images\Cards\Red\Red12.png" />
+    <Content Include="Images\Cards\Red\Red13.png" />
+    <Content Include="Images\Cards\Red\Red14.png" />
+    <Content Include="Images\Cards\Red\Red15.png" />
+    <Content Include="Images\Cards\Red\Red2.png" />
+    <Content Include="Images\Cards\Red\Red3.png" />
+    <Content Include="Images\Cards\Red\Red4.png" />
+    <Content Include="Images\Cards\Red\Red5.png" />
+    <Content Include="Images\Cards\Red\Red6.png" />
+    <Content Include="Images\Cards\Red\Red7.png" />
+    <Content Include="Images\Cards\Red\Red8.png" />
+    <Content Include="Images\Cards\Red\Red9.png" />
+    <Content Include="Images\Cards\Vultures\vulture1.png" />
+    <Content Include="Images\Cards\Vultures\vulture2.png" />
+    <Content Include="Images\Cards\Vultures\vulture3.png" />
+    <Content Include="Images\Cards\Vultures\vulture4.png" />
+    <Content Include="Images\Cards\Vultures\vulture5.png" />
+    <Content Include="Images\Cards\Yellow\Yellow1.png" />
+    <Content Include="Images\Cards\Yellow\Yellow10.png" />
+    <Content Include="Images\Cards\Yellow\Yellow11.png" />
+    <Content Include="Images\Cards\Yellow\Yellow12.png" />
+    <Content Include="Images\Cards\Yellow\Yellow13.png" />
+    <Content Include="Images\Cards\Yellow\Yellow14.png" />
+    <Content Include="Images\Cards\Yellow\Yellow15.png" />
+    <Content Include="Images\Cards\Yellow\Yellow2.png" />
+    <Content Include="Images\Cards\Yellow\Yellow3.png" />
+    <Content Include="Images\Cards\Yellow\Yellow4.png" />
+    <Content Include="Images\Cards\Yellow\Yellow5.png" />
+    <Content Include="Images\Cards\Yellow\Yellow6.png" />
+    <Content Include="Images\Cards\Yellow\Yellow7.png" />
+    <Content Include="Images\Cards\Yellow\Yellow8.png" />
+    <Content Include="Images\Cards\Yellow\Yellow9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

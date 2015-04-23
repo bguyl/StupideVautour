@@ -34,30 +34,37 @@ namespace StupidVulture
 
             List<Player> players = new List<Player>();
             PictureBox[] pictures = { joueur1, joueur2, joueur3, joueur4, joueur5 };
-            
+
+            int i = 0; GameCore.Color gc = GameCore.Color.Red;
             foreach (PictureBox picture in pictures)
             {
+                if (i == 1) { gc = GameCore.Color.Blue; }
+                else if (i == 2) { gc = GameCore.Color.Green; }
+                else if (i == 3) { gc = GameCore.Color.Yellow; }
+                else if (i == 4) { gc = GameCore.Color.Purple; }
+
                 if(picture.Image == _human)
                 {
-                    Human h = new Human(GameCore.Color.Red);
+                    Human h = new Human(gc);
                     players.Add(h);
                 }
                 else if (picture.Image == _easy)
                 {
-                        AI easy = new AI(GameCore.Color.Blue);
+                        AI easy = new AI(gc);
                         players.Add(easy);
                 }
                 else if (picture.Image == _medium)
                 {
-                       AI medium = new AI(GameCore.Color.Green);
+                       AI medium = new AI(gc);
                        players.Add(medium);
                 }
                 else if (picture.Image == _hard)
                 {
-                       AI hard = new AI(GameCore.Color.Purple);
+                       AI hard = new AI(gc);
                        players.Add(hard);
                 }
-
+                
+                i++;
             }
 
 
