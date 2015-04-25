@@ -24,8 +24,35 @@ namespace StupidVulture
         List<Bitmap> Mice = new List<Bitmap>();
         List<Bitmap> Vultures = new List<Bitmap>();
 
+        /// <summary>
+        /// Public constructor
+        /// </summary>
+        /// <param name="engine">The game handler</param>
+        public Game(Engine engine)
+        {
+
+            this.engine = engine;
+            InitializeComponent();
+            CardsListInitialize(GameCore.Color.Blue, BlueCards);
+            CardsListInitialize(GameCore.Color.Red, RedCards);
+            CardsListInitialize(GameCore.Color.Green, GreenCards);
+            CardsListInitialize(GameCore.Color.Yellow, YellowCards);
+            CardsListInitialize(GameCore.Color.Purple, PurpleCards);
+            CardsListInitialize();
+            DisplayHand();
+
+        }
+
+        /// <summary>
+        /// Load all images cards and add them in the list 'Color'Cards
+        /// </summary>
+        /// <param name="color">The player's color for this list of bitmap</param>
+        /// <param name="list">A list of bitmap images name 'Color'Cards</param>
         public void CardsListInitialize(GameCore.Color color, List<Bitmap> list)
         {
+
+
+
             String path = "../../Images/Cards/"+color.ToString()+"/"+color.ToString("g");
             String path2 = "";
             Bitmap b,c;
@@ -59,25 +86,12 @@ namespace StupidVulture
                 Vultures.Add(b);
             }
         }
-        public Game(Engine engine)
-        {
-            
 
 
-            this.engine = engine;
-            InitializeComponent();
-            CardsListInitialize(GameCore.Color.Blue, BlueCards);
-            CardsListInitialize(GameCore.Color.Red, RedCards);
-            CardsListInitialize(GameCore.Color.Green, GreenCards);
-            CardsListInitialize(GameCore.Color.Yellow, YellowCards);
-            CardsListInitialize(GameCore.Color.Purple, PurpleCards);
-            CardsListInitialize();
-            DisplayHand();
-
-
-
-        }
-
+        /// <summary>
+        /// Display the player's hand with his color
+        /// </summary>
+        /// <param name="listImg">The list of bitmap with the player's color</param>
         public void DisplayHand(List<Bitmap> listImg)
         {
             int i = 0;
@@ -91,6 +105,9 @@ namespace StupidVulture
             
         }
 
+        /// <summary>
+        /// Display the player's hand, whatever is his color
+        /// </summary>
         public void DisplayHand()
         {
             Human h;
@@ -111,6 +128,7 @@ namespace StupidVulture
 
 
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {

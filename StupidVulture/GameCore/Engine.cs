@@ -38,13 +38,13 @@ namespace StupidVulture.GameCore
             get { return players; }
         }
         
-        public int AmountPlayers
+        public int amountPlayers
         {
             get { return nbPlayers; }
             set { nbPlayers = value; }
         }
         
-        public void ShuffleCards()
+        public void shuffleCards()
         {
             Random rand = new Random();
             for(int i = stack.Count(); i > 1;i--)
@@ -56,7 +56,7 @@ namespace StupidVulture.GameCore
             }
 
         }
-        public void InitializeCards()
+        public void initializeCards()
         {
             for(int i = 1;i <= nbMice;i++)
             {
@@ -66,15 +66,15 @@ namespace StupidVulture.GameCore
             {
                 stack.Add(new PointCard(CardType.Vulture, j));
             }
-            ShuffleCards();
+            shuffleCards();
         }
 
-        public void InitializePlayers()
+        public void initializePlayers()
         {
 
         }
 
-        public Boolean EndingTest()
+        public Boolean endingTest()
         {
             if (stack.Count() == 0)
                 return true;
@@ -88,7 +88,7 @@ namespace StupidVulture.GameCore
             stack.Remove(currentCard);
         }
 
-        public void ShowCards()
+        public void showCards()
         {
             for(int i = 0; i < nbPlayers; i++)
             {
@@ -104,16 +104,16 @@ namespace StupidVulture.GameCore
 
         }
 
-        public void Play()
+        public void play()
         {
             for(int i = 0;i < nbPlayers; i++)
             {
-                players[i].Play();
+                players[i].play();
             }
-            Player winner = TurnWinner();
+            Player winner = turnWinner();
         }
 
-        public Player TurnWinner()
+        public Player turnWinner()
         {
             int min = 16, max = 0;
             Player playMin = null,playMax = null;
