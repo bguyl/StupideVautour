@@ -111,7 +111,7 @@ namespace StupidVulture.GameCore
             
             for(int i = 0;i < nbPlayers; i++)
             {
-                players[i].play();
+                players[i].play(currentCard);
             }
             Player winner = turnWinner(players);
             if(winner != null)
@@ -123,6 +123,8 @@ namespace StupidVulture.GameCore
         {
             winner.Score += currentCard.Value;
         }
+
+
         public Player turnWinner(List<Player> players)
         {
             int min = 16, max = 0;

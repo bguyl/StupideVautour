@@ -29,7 +29,7 @@ namespace StupidVulture.GameCore.Players
             remainingCards.Remove(currentPlayerCard);
         }
 
-        public override PlayerCard play()
+        public override PlayerCard play(PointCard card)
         {
             played = false;
             while(!played)
