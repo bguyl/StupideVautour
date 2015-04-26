@@ -28,15 +28,15 @@ namespace StupidVulture.GameCore.Players
             }
         }
 
-        public override PlayerCard play(PointCard point)
+        public override PlayerCard play()
         {
-            switch (difficulty)
-            {
-                case Difficulty.EASY : return play(point, 0);
-                case Difficulty.MEDIUM : return play(point, 1);
-                case Difficulty.HARD : return play(point, 2);
-                default : break;
-            }
+            //switch (difficulty)
+            //{
+             //   case Difficulty.EASY : return play(0);
+              //  case Difficulty.MEDIUM : return play(1);
+              //  case Difficulty.HARD : return play(2);
+              //  default : return play();
+            //}
 
             Random rand = new Random();
             int i = rand.Next(remainingCards.Count() - 1);
@@ -50,7 +50,7 @@ namespace StupidVulture.GameCore.Players
         /// </summary>
         /// <param name="param">UCB parameter \alpha</param>
         /// <returns>The card played</returns>
-        public PlayerCard play(PointCard point, int param)
+        public PlayerCard play(int param)
         {
             //TODO implement Monte-Carlos & UCB            
             foreach(Player op in opponent){
@@ -66,10 +66,10 @@ namespace StupidVulture.GameCore.Players
                 for (int j = 0; j < opponent.Count; j++ )
                 {
                     virtualPlayers[j].clone(opponent[j]);
-                    virtualPlayers[j].play(point);
+                    virtualPlayers[j].play();
                 }
-                PlayerCard pcard  = UCBPlay();
-                if (winAgainstClone(point, pcard))
+                PlayerCard card  = UCBPlay();
+                if (winAgainstClone(card))
                 {
                     UCB.addWin();
                 }
@@ -77,7 +77,7 @@ namespace StupidVulture.GameCore.Players
                 
             }
 
-            return play(point);
+            return play();
         }
 
 
@@ -104,11 +104,11 @@ namespace StupidVulture.GameCore.Players
         /// </summary>
         /// <param name="card">The current card</param>
         /// <returns></returns>
-        private Boolean winAgainstClone(PointCard point, PlayerCard pcard)
+        private Boolean winAgainstClone(PlayerCard card)
         {
             foreach (Clone vp in virtualPlayers)
             {
-                vp.play(point);
+                vp.play();
             }
             
             
