@@ -111,10 +111,11 @@ namespace StupidVulture.GameCore
             
             for(int i = 0;i < nbPlayers; i++)
             {
-                players[i].playRandom();
+                players[i].play();
             }
-            Player winner = turnWinner();
-            incrementWinnerScore(winner);
+            Player winner = turnWinner(players);
+            if(winner != null)
+                incrementWinnerScore(winner);
             return winner;
         }
 
@@ -122,28 +123,67 @@ namespace StupidVulture.GameCore
         {
             winner.Score += currentCard.Value;
         }
-        public Player turnWinner()
+        public Player turnWinner(List<Player> players)
         {
             int min = 16, max = 0;
-            Player playMin = null,playMax = null;
-            for(int i=0; i < nbPlayers;i++)
+            List<Player> playmin, playmax;
+            playmin = new List<Player>();
+            playmax = new List<Player>();
+            for(int i=0; i < players.Count();i++)
             {
                 if (players[i].CurrentPlayerCard.Value < min)
                 {
-                    playMin = players[i];
+                    playmin.Clear();
+                    playmin.Add(players[i]);
                     min = players[i].CurrentPlayerCard.Value;
                 }
-                else if (players[i].CurrentPlayerCard.Value > max)
+                else if (players[i].CurrentPlayerCard.Value == min)
                 {
-                    playMax = players[i];  
+                    playmin.Add(players[i]);
+                }
+                if (players[i].CurrentPlayerCard.Value > max)
+                {
+                    playmax.Clear();
+                    playmax.Add(players[i]);  
                     max = players[i].CurrentPlayerCard.Value;
                 }
+                else if(players[i].CurrentPlayerCard.Value == max)
+                {
+                    playmax.Add(players[i]);
+                }
+
 
             }
-            if (currentCard.Type == CardType.Mouse)
-                return playMax;
+
+            List<Player> players2 = new List<Player>(players);
+
+            if (currentCard.Type == CardType.Mouse && playmax.Count() > 1)
+            {
+                foreach (Player player in playmax)
+                {
+                    players2.Remove(player);
+                }
+                return turnWinner(players2);
+            }
+            else if (currentCard.Type == CardType.Vulture && playmin.Count() > 1)
+            {
+                foreach (Player player in playmin)
+                {
+                    players2.Remove(player);
+                }
+                return turnWinner(players2);
+            }
+            else if (currentCard.Type == CardType.Mouse && playmax.Count() == 1)
+            {
+                return playmax[0];
+            }
+            else if (currentCard.Type == CardType.Vulture && playmin.Count() == 1)
+            {
+                return playmin[0];
+            }
             else
-                return playMin;
+                return null;
+
         }
 
 

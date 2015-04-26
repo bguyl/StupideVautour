@@ -3,23 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using StupidVulture.GameCore.Cards;
+using System.Windows.Forms;
 
 namespace StupidVulture.GameCore.Players
 {
     public class Human : Player
     {
+        private bool played = false;
+        
+        public bool Played
+        {
+            get { return played; }
+            set { played = value; }
+        }
         public Human(Color color) : base(color)
         {
             
         }
 
-        public PlayerCard playRandom()
+
+        public void play(int i)
         {
-            Random rand = new Random();
-            int i = rand.Next(remainingCards.Count() - 1);
-            currentPlayerCard = remainingCards[i];
+            currentPlayerCard = remainingCards.Find(card => card.Value == i + 1);
+
             remainingCards.Remove(currentPlayerCard);
+        }
+
+        public override PlayerCard play()
+        {
+            played = false;
+            while(!played)
+            {
+                Application.DoEvents();
+                Application.DoEvents();
+            }
             return currentPlayerCard;
         }
+
+        
     }
 }

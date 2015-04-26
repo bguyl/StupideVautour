@@ -66,7 +66,7 @@ namespace StupidVulture
                 b = (Bitmap)Image.FromFile(path2);
                 c = new Bitmap(b, new Size(82, 119));
                 list.Add(c);
-
+                
             }
         }
 
@@ -176,31 +176,39 @@ namespace StupidVulture
                 PictureBox pb = (PictureBox)playersCards.Controls[j];
                 GameCore.Color color = engine.Players[j].Color;
                 int num = engine.Players[j].CurrentPlayerCard.Value;
+                Bitmap image = null; 
                 switch (color)
                 {
                     case GameCore.Color.Blue :
-                        pb.Image = BlueCards[num - 1];
+                        image = BlueCards[num - 1];
                         break;
                     case GameCore.Color.Red :
-                        pb.Image = RedCards[num - 1];
+                        image = RedCards[num - 1];
                         break;
                     case GameCore.Color.Green :
-                        pb.Image = GreenCards[num - 1];
+                        image = GreenCards[num - 1];
                         break;
                     case GameCore.Color.Yellow :
-                        pb.Image = YellowCards[num - 1];
+                        image = YellowCards[num - 1];
                         break;
                     case GameCore.Color.Purple :
-                        pb.Image = PurpleCards[num - 1];
+                        image = PurpleCards[num - 1];
                         break;
                     default :
                         break;
                 }
+
+                pb.Image = new Bitmap(image, new Size(164, 238));
             }
         }
 
         private void showWinner(Player winner)
         {
+            if(winner == null)
+            {
+                MessageBox.Show("Personne ne remporte cette carte.");
+                return;
+            }
             string color = winner.Color.ToString();
             if(winner is Human)
             {
@@ -226,10 +234,39 @@ namespace StupidVulture
             }
         }
 
+        private void handUpdate(int index)
+        {
+            PictureBox pb = (PictureBox)hand.Controls[index];
+            pb.Image = null;
+            hand.Controls[index].Enabled = false;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             gameLoop();
         }
 
+        private void cX_Click(object sender, EventArgs e)
+        {
+            Human h = (Human)engine.Players.Find(player => player is Human);
+            PictureBox pb = (PictureBox)sender;
+            int index=-1;
+            int j = 0;
+            PictureBox pbTest;
+            foreach(Control ctrl in hand.Controls)
+            {
+                pbTest = (PictureBox)ctrl;
+                if(pbTest.Image == pb.Image)
+                {
+                    index = j;
+                }
+                j++;
+            }
+            h.Played = true;
+            h.play(index);
+            handUpdate(index);
+            }
+
+        }
+
     }
-}
