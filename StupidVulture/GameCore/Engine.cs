@@ -188,6 +188,27 @@ namespace StupidVulture.GameCore
 
         }
 
+        public List<Player> getWinner()
+        {
+            int max = -1;
+            List<Player> winners = new List<Player>();
+            foreach(Player player in players)
+            {
+                if(player.Score > max)
+                {
+                    winners.Clear();
+                    winners.Add(player);
+                    max = player.Score;
+                }
+                else if(player.Score == max)
+                {
+                    winners.Add(player);
+                }
+            }
+
+            return winners;
+        }
+
 
 
 
