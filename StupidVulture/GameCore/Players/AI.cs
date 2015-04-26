@@ -12,11 +12,25 @@ namespace StupidVulture.GameCore.Players
     public class AI : Player
     {
         private Difficulty difficulty;
-        public List<Player> opponent;
+        private List<Player> opponent;
+        private List<UCB> data;
+        private Engine virtualEngine;
+
 
         public AI(Color color, Difficulty difficulty) : base(color)
         {
             this.difficulty = difficulty;
+            foreach (PlayerCard card in remainingCards)
+            {
+                UCB d = new UCB(card, 2);
+                data.Add(d);
+            }
+        }
+
+        public Engine VirtualEngine
+        {
+            set { virtualEngine = value; }
+            get { return virtualEngine; }
         }
 
         public override PlayerCard play()
@@ -31,7 +45,7 @@ namespace StupidVulture.GameCore.Players
         }
 
         /// <summary>
-        /// 
+        /// Create numerous virtual game and choose the best card.
         /// </summary>
         /// <param name="param">UCB parameter \alpha</param>
         /// <returns>The card played</returns>
@@ -48,13 +62,14 @@ namespace StupidVulture.GameCore.Players
 
             for (int i = 0; i < 1000000; i++)
             {
+
                 for (int j = 0; j < opponent.Count; j++ )
                 {
                     virtualPlayers[j].clone(opponent[j]);
                     virtualPlayers[j].play();
                 }
                 UCBPlay();
-
+                
             }
             return null;
         }
