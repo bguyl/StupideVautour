@@ -52,17 +52,17 @@ namespace StupidVulture
                 }
                 else if (picture.Image == _easy)
                 {
-                    AI easy = new AI(gc, Difficulty.RANDOM);
+                    AI easy = new AI(gc, Difficulty.EASY);
                         players.Add(easy);
                 }
                 else if (picture.Image == _medium)
                 {
-                    AI medium = new AI(gc, Difficulty.RANDOM);
+                    AI medium = new AI(gc, Difficulty.MEDIUM);
                        players.Add(medium);
                 }
                 else if (picture.Image == _hard)
                 {
-                    AI hard = new AI(gc, Difficulty.RANDOM);
+                    AI hard = new AI(gc, Difficulty.HARD);
                        players.Add(hard);
                 }
                 
