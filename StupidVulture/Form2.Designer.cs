@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
             this.button1 = new System.Windows.Forms.Button();
             this.stack = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.player5 = new System.Windows.Forms.PictureBox();
+            this.player3 = new System.Windows.Forms.PictureBox();
+            this.player4 = new System.Windows.Forms.PictureBox();
+            this.player2 = new System.Windows.Forms.PictureBox();
+            this.player1 = new System.Windows.Forms.PictureBox();
             this.hand = new System.Windows.Forms.TableLayoutPanel();
             this.c1 = new System.Windows.Forms.PictureBox();
             this.c2 = new System.Windows.Forms.PictureBox();
@@ -52,12 +51,14 @@
             this.c13 = new System.Windows.Forms.PictureBox();
             this.c14 = new System.Windows.Forms.PictureBox();
             this.c15 = new System.Windows.Forms.PictureBox();
+            this.playersCards = new System.Windows.Forms.TableLayoutPanel();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.stack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1)).BeginInit();
             this.hand.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.c1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c2)).BeginInit();
@@ -74,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c15)).BeginInit();
+            this.playersCards.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -89,57 +91,58 @@
             // 
             // stack
             // 
-            this.stack.Image = ((System.Drawing.Image)(resources.GetObject("stack.Image")));
+            this.stack.BackColor = System.Drawing.Color.Transparent;
+            this.stack.Image = global::StupidVulture.Properties.Resources.CardsBack;
             this.stack.Location = new System.Drawing.Point(1145, 148);
             this.stack.Name = "stack";
             this.stack.Size = new System.Drawing.Size(164, 238);
             this.stack.TabIndex = 13;
             this.stack.TabStop = false;
             // 
-            // pictureBox5
+            // player5
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.Location = new System.Drawing.Point(945, 148);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(164, 238);
-            this.pictureBox5.TabIndex = 18;
-            this.pictureBox5.TabStop = false;
+            this.player5.BackColor = System.Drawing.Color.Transparent;
+            this.player5.Location = new System.Drawing.Point(775, 3);
+            this.player5.Name = "player5";
+            this.player5.Size = new System.Drawing.Size(164, 232);
+            this.player5.TabIndex = 18;
+            this.player5.TabStop = false;
             // 
-            // pictureBox1
+            // player3
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(549, 148);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 238);
-            this.pictureBox1.TabIndex = 19;
-            this.pictureBox1.TabStop = false;
+            this.player3.BackColor = System.Drawing.Color.Transparent;
+            this.player3.Location = new System.Drawing.Point(389, 3);
+            this.player3.Name = "player3";
+            this.player3.Size = new System.Drawing.Size(164, 232);
+            this.player3.TabIndex = 19;
+            this.player3.TabStop = false;
             // 
-            // pictureBox2
+            // player4
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Location = new System.Drawing.Point(748, 148);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(164, 238);
-            this.pictureBox2.TabIndex = 20;
-            this.pictureBox2.TabStop = false;
+            this.player4.BackColor = System.Drawing.Color.Transparent;
+            this.player4.Location = new System.Drawing.Point(582, 3);
+            this.player4.Name = "player4";
+            this.player4.Size = new System.Drawing.Size(164, 232);
+            this.player4.TabIndex = 20;
+            this.player4.TabStop = false;
             // 
-            // pictureBox3
+            // player2
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Location = new System.Drawing.Point(341, 148);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(164, 238);
-            this.pictureBox3.TabIndex = 21;
-            this.pictureBox3.TabStop = false;
+            this.player2.BackColor = System.Drawing.Color.Transparent;
+            this.player2.Location = new System.Drawing.Point(196, 3);
+            this.player2.Name = "player2";
+            this.player2.Size = new System.Drawing.Size(164, 232);
+            this.player2.TabIndex = 21;
+            this.player2.TabStop = false;
             // 
-            // pictureBox4
+            // player1
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Location = new System.Drawing.Point(141, 148);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(164, 238);
-            this.pictureBox4.TabIndex = 22;
-            this.pictureBox4.TabStop = false;
+            this.player1.BackColor = System.Drawing.Color.Transparent;
+            this.player1.Location = new System.Drawing.Point(3, 3);
+            this.player1.Name = "player1";
+            this.player1.Size = new System.Drawing.Size(164, 232);
+            this.player1.TabIndex = 22;
+            this.player1.TabStop = false;
             // 
             // hand
             // 
@@ -302,6 +305,37 @@
             this.c15.TabIndex = 0;
             this.c15.TabStop = false;
             // 
+            // playersCards
+            // 
+            this.playersCards.BackColor = System.Drawing.Color.Transparent;
+            this.playersCards.ColumnCount = 5;
+            this.playersCards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.playersCards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.playersCards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.playersCards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.playersCards.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.playersCards.Controls.Add(this.player2, 1, 0);
+            this.playersCards.Controls.Add(this.player3, 2, 0);
+            this.playersCards.Controls.Add(this.player5, 4, 0);
+            this.playersCards.Controls.Add(this.player4, 3, 0);
+            this.playersCards.Controls.Add(this.player1, 0, 0);
+            this.playersCards.Location = new System.Drawing.Point(138, 148);
+            this.playersCards.Name = "playersCards";
+            this.playersCards.RowCount = 1;
+            this.playersCards.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.playersCards.Size = new System.Drawing.Size(968, 238);
+            this.playersCards.TabIndex = 24;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(846, 489);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,12 +343,9 @@
             this.BackgroundImage = global::StupidVulture.Properties.Resources.Texture2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.playersCards);
             this.Controls.Add(this.hand);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.stack);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
@@ -323,11 +354,11 @@
             this.Text = "StupidVulture";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.stack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player1)).EndInit();
             this.hand.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.c1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c2)).EndInit();
@@ -344,6 +375,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.c13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c15)).EndInit();
+            this.playersCards.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -352,11 +384,11 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox stack;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox player5;
+        private System.Windows.Forms.PictureBox player3;
+        private System.Windows.Forms.PictureBox player4;
+        private System.Windows.Forms.PictureBox player2;
+        private System.Windows.Forms.PictureBox player1;
         private System.Windows.Forms.TableLayoutPanel hand;
         private System.Windows.Forms.PictureBox c1;
         private System.Windows.Forms.PictureBox c2;
@@ -373,5 +405,7 @@
         private System.Windows.Forms.PictureBox c13;
         private System.Windows.Forms.PictureBox c14;
         private System.Windows.Forms.PictureBox c15;
+        private System.Windows.Forms.TableLayoutPanel playersCards;
+        private System.Windows.Forms.Button button2;
     }
 }

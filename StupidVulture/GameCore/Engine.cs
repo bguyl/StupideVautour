@@ -31,6 +31,7 @@ namespace StupidVulture.GameCore
             this.players = players;
             nbPlayers = this.players.Count();
             this.stack = new List<PointCard>();
+            initializeCards();
         }
 
         public List<Player> Players
@@ -47,9 +48,9 @@ namespace StupidVulture.GameCore
         public void shuffleCards()
         {
             Random rand = new Random();
-            for(int i = stack.Count(); i > 1;i--)
+            for(int i = stack.Count()-1; i >= 0;i--)
             {
-                int k = rand.Next(i + 1);
+                int k = rand.Next(i+1);
                 PointCard temp = stack[k];
                 stack[k] = stack[i];
                 stack[i] = temp;
@@ -62,7 +63,7 @@ namespace StupidVulture.GameCore
             {
                stack.Add(new PointCard(CardType.Mouse,i));
             }
-            for(int j = -1; j >= nbVultures; j--)
+            for(int j = -1; j >= (0-nbVultures); j--)
             {
                 stack.Add(new PointCard(CardType.Vulture, j));
             }
@@ -82,10 +83,11 @@ namespace StupidVulture.GameCore
                 return false;
         }
 
-        public void DrawCard()
+        public PointCard DrawCard()
         {
             currentCard = stack[0];
             stack.Remove(currentCard);
+            return currentCard;
         }
 
         public void showCards()
@@ -104,15 +106,22 @@ namespace StupidVulture.GameCore
 
         }
 
-        public void play()
+        public Player play()
         {
+            
             for(int i = 0;i < nbPlayers; i++)
             {
-                players[i].play();
+                players[i].playRandom();
             }
             Player winner = turnWinner();
+            incrementWinnerScore(winner);
+            return winner;
         }
 
+        public void incrementWinnerScore(Player winner)
+        {
+            winner.Score += currentCard.Value;
+        }
         public Player turnWinner()
         {
             int min = 16, max = 0;
@@ -136,6 +145,7 @@ namespace StupidVulture.GameCore
             else
                 return playMin;
         }
+
 
 
 
