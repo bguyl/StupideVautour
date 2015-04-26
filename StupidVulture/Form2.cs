@@ -42,8 +42,45 @@ namespace StupidVulture
             CardsListInitialize(GameCore.Color.Purple, PurpleCards);
             CardsListInitialize();
             CardsBackInitialize();
+            labelScoreInitialize();
             DisplayHand();
             
+
+        }
+
+        public void labelScoreInitialize()
+        {
+            int i = engine.amountPlayers;
+            if (i >= 1)
+            {
+                lblJoueur1.Visible = true;
+                lblScore1.Visible = true;
+                score1.Visible = true;
+            }               
+            if (i >= 2)
+            {
+                lblJoueur2.Visible = true;
+                lblScore2.Visible = true;
+                score2.Visible = true;
+            }
+            if (i >= 3)
+            {
+                lblJoueur3.Visible = true;
+                lblScore3.Visible = true;
+                score3.Visible = true;
+            }
+            if (i >= 4)
+            {
+                lblJoueur4.Visible = true;
+                lblScore4.Visible = true;
+                score4.Visible = true;
+            }
+            if (i == 5)
+            {
+                lblJoueur5.Visible = true;
+                lblScore5.Visible = true;
+                score5.Visible = true;
+            }
 
         }
 
@@ -114,6 +151,7 @@ namespace StupidVulture
                 pb = (PictureBox)ctrl;
                 pb.Image = listImg[i];
                 i++;
+                pb.Enabled = false;
             }
 
         }
@@ -168,6 +206,20 @@ namespace StupidVulture
             }
         }
 
+        private void scoreDisplay()
+        {
+            int i = engine.amountPlayers;
+            if (i >= 1)
+                score1.Text = engine.Players[0].Score.ToString();
+            if (i >= 2)
+                score2.Text = engine.Players[1].Score.ToString();
+            if (i >= 3)
+                score3.Text = engine.Players[2].Score.ToString();
+            if (i >= 4)
+                score4.Text = engine.Players[3].Score.ToString();
+            if (i == 5)
+                score5.Text = engine.Players[4].Score.ToString();
+        }
         private void showCards()
         {
             int i = engine.amountPlayers;
@@ -202,7 +254,7 @@ namespace StupidVulture
             }
         }
 
-        private void showWinner(Player winner)
+        private void showTurnWinner(Player winner)
         {
             if(winner == null)
             {
@@ -220,6 +272,8 @@ namespace StupidVulture
                 MessageBox.Show("Le joueur " + color + " remporte cette carte.");
             }
         }
+
+        
         public void gameLoop()
         {
             while(!engine.endingTest())
@@ -229,9 +283,47 @@ namespace StupidVulture
                 showBackCards();
                 Player winner = engine.play();
                 showCards();
-                showWinner(winner);
+                showTurnWinner(winner);
+                scoreDisplay();
                 
             }
+
+            List<Player> winners = engine.getWinner();
+            showWinner(winners);
+            Menu form = new Menu();
+            this.Hide();
+            form.Show();
+        }
+
+        public void showWinner(List<Player> winners)
+        {
+            String str;
+            if(winners.Count() == 1)
+            {
+                String color = winners[0].Color.ToString();
+                str = "Le gagnant est le joueur "+color+" !";
+
+            }
+            else
+            {
+                str = "Les gagnants sont les joueurs ";
+                int i = 0;
+                foreach(Player winner in winners)
+                {
+                    str = str + winners[i].Color.ToString();
+                    i++;
+                    if(i < winners.Count()-1)
+                    {
+                        str = str + " et le joueur ";
+                    }
+                    else
+                    {
+                        str = str + " !";
+                    }
+                }
+            }
+            MessageBox.Show(str);
+               
         }
 
         private void handUpdate(int index)
@@ -243,6 +335,12 @@ namespace StupidVulture
 
         private void button2_Click(object sender, EventArgs e)
         {
+            PictureBox pb;
+            foreach (Control ctrl in hand.Controls)
+            {
+                pb = (PictureBox)ctrl;
+                pb.Enabled = true;
+            }
             gameLoop();
         }
 
@@ -266,6 +364,7 @@ namespace StupidVulture
             h.play(index);
             handUpdate(index);
             }
+
 
         }
 
