@@ -64,7 +64,7 @@ namespace StupidVulture.GameCore.Players
             remainingCards.Remove(currentPlayerCard);
             return currentPlayerCard;
         }
-        
+
     }
    
 }

@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace StupidVulture.GameCore.Players.AI_Tools
 {
-    class UCB : Player
+    class UCB 
     {
-        public UCB(Color color) : base(color)
-        {
-
-        }
+        
     }
 }

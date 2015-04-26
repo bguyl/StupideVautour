@@ -12,5 +12,20 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         {
 
         }
+
+        /// <summary>
+        /// Copy the player for simulation
+        /// </summary>
+        /// <param name="player">The player to copy</param>
+        public void clone(Player player)
+        {
+            score = player.Score;
+            color = player.Color;
+            remainingCards = player.RemainingCards;
+            wonCards = player.WonCards;
+            currentPlayerCard = player.CurrentPlayerCard;
+        }
+
+
     }
 }

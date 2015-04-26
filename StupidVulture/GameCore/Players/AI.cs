@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using StupidVulture.GameCore.Cards;
+using StupidVulture.GameCore.Players.AI_Tools;
 
 namespace StupidVulture.GameCore.Players
 {
@@ -11,6 +12,7 @@ namespace StupidVulture.GameCore.Players
     public class AI : Player
     {
         private Difficulty difficulty;
+        public List<Player> opponent;
 
         public AI(Color color, Difficulty difficulty) : base(color)
         {
@@ -36,6 +38,29 @@ namespace StupidVulture.GameCore.Players
         public PlayerCard play(int param)
         {
             //TODO implement Monte-Carlos & UCB
+            List<Clone> virtualPlayers = new List<Clone>();
+            foreach(Player op in opponent){
+                Clone cl = new Clone(op.Color);
+                cl.clone(op);
+                virtualPlayers.Add(cl);
+            }
+
+
+            for (int i = 0; i < 1000000; i++)
+            {
+                for (int j = 0; j < opponent.Count; j++ )
+                {
+                    virtualPlayers[j].clone(opponent[j]);
+                    virtualPlayers[j].play();
+                }
+                UCBPlay();
+
+            }
+            return null;
+        }
+
+        public PlayerCard UCBPlay()
+        {
             return null;
         }
 
