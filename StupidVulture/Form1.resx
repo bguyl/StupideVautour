@@ -126,7 +126,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="LaunchButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kraash Black, 12pt</value>
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="LaunchButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>328, 498</value>
@@ -157,7 +157,7 @@
     <value>Popup</value>
   </data>
   <data name="ExitButton.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kraash Black, 12pt</value>
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="ExitButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>876, 498</value>
@@ -292,13 +292,13 @@
     <value>True</value>
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kraash Black, 9pt</value>
+    <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>133, 431</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 26</value>
+    <value>55, 15</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -322,7 +322,7 @@
     <value>True</value>
   </data>
   <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kraash Black, 9pt</value>
+    <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -331,7 +331,7 @@
     <value>379, 431</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 26</value>
+    <value>55, 15</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -355,7 +355,7 @@
     <value>True</value>
   </data>
   <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kraash Black, 9pt</value>
+    <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -364,7 +364,7 @@
     <value>625, 431</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 26</value>
+    <value>55, 15</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -388,7 +388,7 @@
     <value>True</value>
   </data>
   <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kraash Black, 9pt</value>
+    <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -397,7 +397,7 @@
     <value>871, 431</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 26</value>
+    <value>55, 15</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -421,7 +421,7 @@
     <value>True</value>
   </data>
   <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kraash Black, 9pt</value>
+    <value>Microsoft Sans Serif, 9pt</value>
   </data>
   <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -430,7 +430,7 @@
     <value>1117, 431</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 26</value>
+    <value>55, 15</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -454,16 +454,16 @@
     <value>True</value>
   </data>
   <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Kraash Black, 48pt</value>
+    <value>Playbill, 72pt, style=Bold, Italic</value>
   </data>
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 80</value>
+    <value>475, 21</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1028, 139</value>
+    <value>409, 98</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -493,7 +493,7 @@
     <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1366, 768</value>
+    <value>1292, 768</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>StupidVulture</value>

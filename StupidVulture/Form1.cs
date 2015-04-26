@@ -70,7 +70,18 @@ namespace StupidVulture
             }
 
 
-
+            foreach (Player pl in players)
+            {
+                if (pl is AI)
+                {
+                    AI plAI = (AI)pl;
+                    foreach(Player op in players){
+                        if(op != pl){
+                            plAI.Opponent.Add(op);
+                        }
+                    }
+                }
+            }
             Engine engine = new Engine(players);
             Game form = new Game(engine);
             this.Hide();

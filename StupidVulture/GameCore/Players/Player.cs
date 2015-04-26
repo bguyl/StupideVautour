@@ -6,7 +6,7 @@ using StupidVulture.GameCore.Cards;
 
 namespace StupidVulture.GameCore.Players
 {
-    public class Player
+    public abstract class Player
     {
         protected int score;
         protected Color color;
@@ -58,21 +58,7 @@ namespace StupidVulture.GameCore.Players
             set { currentPlayerCard = value; }
         }
 
-        public virtual PlayerCard play()
-        {
-            currentPlayerCard = remainingCards.Last();
-            remainingCards.Remove(currentPlayerCard);
-            return currentPlayerCard;
-        }
-        
-        public PlayerCard playRandom()
-        {
-            Random rand = new Random();
-            int i = rand.Next(remainingCards.Count() - 1);
-            currentPlayerCard = remainingCards[i];
-            remainingCards.Remove(currentPlayerCard);
-            return currentPlayerCard;
-        }
+        public abstract PlayerCard play(PointCard point);
         
     }
    
