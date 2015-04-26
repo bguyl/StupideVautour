@@ -74,7 +74,7 @@ namespace StupidVulture
             CardsListInitialize();
             DisplayHand();
 
-
+            engine.shuffleCards();
 
         }
 

@@ -44,7 +44,7 @@ namespace StupidVulture.GameCore
             set { nbPlayers = value; }
         }
         
-        public void ShuffleCards()
+        public void shuffleCards()
         {
             Random rand = new Random();
             for(int i = stack.Count(); i > 1;i--)
@@ -56,7 +56,7 @@ namespace StupidVulture.GameCore
             }
 
         }
-        public void InitializeCards()
+        public void initializeCards()
         {
             for(int i = 1;i <= nbMice;i++)
             {
@@ -66,15 +66,15 @@ namespace StupidVulture.GameCore
             {
                 stack.Add(new PointCard(CardType.Vulture, j));
             }
-            ShuffleCards();
+            shuffleCards();
         }
 
-        public void InitializePlayers()
+        public void initializePlayers()
         {
 
         }
 
-        public Boolean EndingTest()
+        public Boolean endingTest()
         {
             if (stack.Count() == 0)
                 return true;
