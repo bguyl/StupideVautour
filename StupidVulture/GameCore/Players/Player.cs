@@ -58,9 +58,18 @@ namespace StupidVulture.GameCore.Players
             set { currentPlayerCard = value; }
         }
 
-        public virtual PlayerCard Play()
+        public virtual PlayerCard play()
         {
             currentPlayerCard = remainingCards.Last();
+            remainingCards.Remove(currentPlayerCard);
+            return currentPlayerCard;
+        }
+
+        public PlayerCard playRandom()
+        {
+            Random rand = new Random();
+            int i = rand.Next(remainingCards.Count() - 1);
+            currentPlayerCard = remainingCards[i];
             remainingCards.Remove(currentPlayerCard);
             return currentPlayerCard;
         }
