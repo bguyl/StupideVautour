@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StupidVulture.GameCore.Cards;
 
 namespace StupidVulture.GameCore.Players.AI_Tools
 {
     class Clone : Player
     {
+
+        static Random rand = new Random();
+
         public Clone(Color color) : base(color)
         {
 
@@ -25,7 +29,11 @@ namespace StupidVulture.GameCore.Players.AI_Tools
             wonCards = player.WonCards;
             currentPlayerCard = player.CurrentPlayerCard;
         }
-
-
+        public override PlayerCard play(PointCard point)
+        {
+            int i = rand.Next(remainingCards.Count() - 1);
+            currentPlayerCard = remainingCards[i];
+            return currentPlayerCard;
+        }
     }
 }

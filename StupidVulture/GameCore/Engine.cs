@@ -111,7 +111,7 @@ namespace StupidVulture.GameCore
             
             for(int i = 0;i < nbPlayers; i++)
             {
-                players[i].play();
+                players[i].play(currentCard);
             }
             Player winner = turnWinner(players);
             if(winner != null)
