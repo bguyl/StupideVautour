@@ -87,8 +87,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c15)).BeginInit();
             this.playersCards.SuspendLayout();
             this.SuspendLayout();
