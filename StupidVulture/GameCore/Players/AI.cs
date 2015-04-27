@@ -18,6 +18,8 @@ namespace StupidVulture.GameCore.Players
 
         static Random rand = new Random();
 
+        private UCB upperConfident;
+
         public AI(Color color, Difficulty difficulty) : base(color)
         {
             this.difficulty = difficulty;
@@ -67,25 +69,26 @@ namespace StupidVulture.GameCore.Players
             for (int i = 0; i < 100000; i++)
             {
 
-                for (int j = 0; j < opponent.Count; j++ )
+                foreach(Clone vp in virtualPlayers)
                 {
-                    virtualPlayers[j].clone(opponent[j]);
-                    virtualPlayers[j].play(point);
+                    vp.play(point);
                 }
                 PlayerCard card  = UCBPlay();
 
                 if (winAgainstClone(point, card))
                 {
-                    UCB.addWin();
+                    addWin();
                 }
 
-                
             }
 
-            /*CurrentPlayerCard = UCB.findUpperConfident().Card;
+            UCB CurrentUCB = findUpperConfident();
+            CurrentPlayerCard = CurrentUCB.Card;
+            data.Remove(CurrentUCB);
+            Console.WriteLine(CurrentPlayerCard.ToString());
             RemainingCards.Remove(CurrentPlayerCard);
-            return CurrentPlayerCard;*/
-            playRnd();
+            return CurrentPlayerCard;
+            //return playRnd();
         }
 
 
@@ -95,13 +98,16 @@ namespace StupidVulture.GameCore.Players
         /// <returns>The card we want to test</returns>
         private PlayerCard UCBPlay()
         {
-            UCB current = UCB.findUpperConfident();
+            UCB current = findUpperConfident();
             foreach (UCB d in data)
             {
-                if (d.Confident < 0)
-                    return d.Card;
+                //if()
 
                 d.confidentCalculation();
+
+                if (d.Confident == 0)
+                    return d.Card;
+                
             }
             return current.Card;
         }
@@ -116,11 +122,6 @@ namespace StupidVulture.GameCore.Players
 
             PlayerCard tmp = CurrentPlayerCard;
             CurrentPlayerCard = card;
-
-            foreach (Clone vp in virtualPlayers)
-            {
-                vp.play(point);
-            }
 
             List<Player> virtualList = new List<Player>(virtualPlayers);
             virtualList.Add(this);
@@ -197,6 +198,22 @@ namespace StupidVulture.GameCore.Players
                 return null;
 
         }
+
+        public UCB findUpperConfident()
+        {
+            UCB tmp = data[0];
+            foreach (UCB d in data)
+                if (tmp.Confident < d.Confident)
+                    tmp = d;
+            upperConfident = tmp;
+            return tmp;
+        }
+
+        public void addWin()
+        {
+            upperConfident.NbWon++;
+        }
+
 
         private PlayerCard playRnd(){
             int i = rand.Next(remainingCards.Count() - 1);

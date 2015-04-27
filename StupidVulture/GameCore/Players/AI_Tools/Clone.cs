@@ -31,7 +31,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         }
         public override PlayerCard play(PointCard point)
         {
-            int i = rand.Next(remainingCards.Count() - 1);
+            int i = rand.Next(remainingCards.Count());
             currentPlayerCard = remainingCards[i];
             return currentPlayerCard;
         }
