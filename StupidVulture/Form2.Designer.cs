@@ -87,8 +87,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c15)).BeginInit();
             this.playersCards.SuspendLayout();
             this.SuspendLayout();
@@ -191,6 +191,7 @@
             // 
             // c1
             // 
+            this.c1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c1.Location = new System.Drawing.Point(3, 3);
             this.c1.Name = "c1";
             this.c1.Size = new System.Drawing.Size(82, 125);
@@ -200,6 +201,7 @@
             // 
             // c2
             // 
+            this.c2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c2.Location = new System.Drawing.Point(91, 3);
             this.c2.Name = "c2";
             this.c2.Size = new System.Drawing.Size(82, 125);
@@ -209,6 +211,7 @@
             // 
             // c3
             // 
+            this.c3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c3.Location = new System.Drawing.Point(179, 3);
             this.c3.Name = "c3";
             this.c3.Size = new System.Drawing.Size(82, 125);
@@ -218,6 +221,7 @@
             // 
             // c4
             // 
+            this.c4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c4.Location = new System.Drawing.Point(267, 3);
             this.c4.Name = "c4";
             this.c4.Size = new System.Drawing.Size(82, 125);
@@ -227,6 +231,7 @@
             // 
             // c5
             // 
+            this.c5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c5.Location = new System.Drawing.Point(355, 3);
             this.c5.Name = "c5";
             this.c5.Size = new System.Drawing.Size(82, 125);
@@ -236,6 +241,7 @@
             // 
             // c6
             // 
+            this.c6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c6.Location = new System.Drawing.Point(443, 3);
             this.c6.Name = "c6";
             this.c6.Size = new System.Drawing.Size(82, 125);
@@ -245,6 +251,7 @@
             // 
             // c7
             // 
+            this.c7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c7.Location = new System.Drawing.Point(531, 3);
             this.c7.Name = "c7";
             this.c7.Size = new System.Drawing.Size(82, 125);
@@ -254,6 +261,7 @@
             // 
             // c8
             // 
+            this.c8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c8.Location = new System.Drawing.Point(619, 3);
             this.c8.Name = "c8";
             this.c8.Size = new System.Drawing.Size(82, 125);
@@ -263,6 +271,7 @@
             // 
             // c9
             // 
+            this.c9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c9.Location = new System.Drawing.Point(707, 3);
             this.c9.Name = "c9";
             this.c9.Size = new System.Drawing.Size(82, 125);
@@ -272,6 +281,7 @@
             // 
             // c10
             // 
+            this.c10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c10.Location = new System.Drawing.Point(795, 3);
             this.c10.Name = "c10";
             this.c10.Size = new System.Drawing.Size(82, 125);
@@ -281,6 +291,7 @@
             // 
             // c11
             // 
+            this.c11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c11.Location = new System.Drawing.Point(883, 3);
             this.c11.Name = "c11";
             this.c11.Size = new System.Drawing.Size(82, 125);
@@ -290,6 +301,7 @@
             // 
             // c12
             // 
+            this.c12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c12.Location = new System.Drawing.Point(971, 3);
             this.c12.Name = "c12";
             this.c12.Size = new System.Drawing.Size(82, 125);
@@ -299,6 +311,7 @@
             // 
             // c14
             // 
+            this.c14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c14.Location = new System.Drawing.Point(1147, 3);
             this.c14.Name = "c14";
             this.c14.Size = new System.Drawing.Size(82, 125);
@@ -308,6 +321,7 @@
             // 
             // c13
             // 
+            this.c13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c13.Location = new System.Drawing.Point(1059, 3);
             this.c13.Name = "c13";
             this.c13.Size = new System.Drawing.Size(82, 125);
@@ -317,6 +331,7 @@
             // 
             // c15
             // 
+            this.c15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.c15.Location = new System.Drawing.Point(1235, 3);
             this.c15.Name = "c15";
             this.c15.Size = new System.Drawing.Size(82, 125);
@@ -382,12 +397,12 @@
             // 
             this.lblJoueur5.AutoSize = true;
             this.lblJoueur5.BackColor = System.Drawing.Color.Transparent;
-            this.lblJoueur5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblJoueur5.Font = new System.Drawing.Font("Kraash Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoueur5.ForeColor = System.Drawing.Color.White;
             this.lblJoueur5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblJoueur5.Location = new System.Drawing.Point(931, 105);
+            this.lblJoueur5.Location = new System.Drawing.Point(942, 105);
             this.lblJoueur5.Name = "lblJoueur5";
-            this.lblJoueur5.Size = new System.Drawing.Size(55, 15);
+            this.lblJoueur5.Size = new System.Drawing.Size(110, 26);
             this.lblJoueur5.TabIndex = 32;
             this.lblJoueur5.Text = "Joueur 5";
             this.lblJoueur5.Visible = false;
@@ -396,12 +411,12 @@
             // 
             this.lblJoueur4.AutoSize = true;
             this.lblJoueur4.BackColor = System.Drawing.Color.Transparent;
-            this.lblJoueur4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblJoueur4.Font = new System.Drawing.Font("Kraash Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoueur4.ForeColor = System.Drawing.Color.White;
             this.lblJoueur4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblJoueur4.Location = new System.Drawing.Point(747, 105);
             this.lblJoueur4.Name = "lblJoueur4";
-            this.lblJoueur4.Size = new System.Drawing.Size(55, 15);
+            this.lblJoueur4.Size = new System.Drawing.Size(109, 26);
             this.lblJoueur4.TabIndex = 31;
             this.lblJoueur4.Text = "Joueur 4";
             this.lblJoueur4.Visible = false;
@@ -410,12 +425,12 @@
             // 
             this.lblJoueur3.AutoSize = true;
             this.lblJoueur3.BackColor = System.Drawing.Color.Transparent;
-            this.lblJoueur3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblJoueur3.Font = new System.Drawing.Font("Kraash Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoueur3.ForeColor = System.Drawing.Color.White;
             this.lblJoueur3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblJoueur3.Location = new System.Drawing.Point(556, 105);
             this.lblJoueur3.Name = "lblJoueur3";
-            this.lblJoueur3.Size = new System.Drawing.Size(55, 15);
+            this.lblJoueur3.Size = new System.Drawing.Size(109, 26);
             this.lblJoueur3.TabIndex = 30;
             this.lblJoueur3.Text = "Joueur 3";
             this.lblJoueur3.Visible = false;
@@ -424,12 +439,12 @@
             // 
             this.lblJoueur2.AutoSize = true;
             this.lblJoueur2.BackColor = System.Drawing.Color.Transparent;
-            this.lblJoueur2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblJoueur2.Font = new System.Drawing.Font("Kraash Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoueur2.ForeColor = System.Drawing.Color.White;
             this.lblJoueur2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblJoueur2.Location = new System.Drawing.Point(360, 105);
             this.lblJoueur2.Name = "lblJoueur2";
-            this.lblJoueur2.Size = new System.Drawing.Size(55, 15);
+            this.lblJoueur2.Size = new System.Drawing.Size(108, 26);
             this.lblJoueur2.TabIndex = 29;
             this.lblJoueur2.Text = "Joueur 2";
             this.lblJoueur2.Visible = false;
@@ -438,12 +453,12 @@
             // 
             this.lblJoueur1.AutoSize = true;
             this.lblJoueur1.BackColor = System.Drawing.Color.Transparent;
-            this.lblJoueur1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblJoueur1.Font = new System.Drawing.Font("Kraash Black", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJoueur1.ForeColor = System.Drawing.Color.White;
             this.lblJoueur1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblJoueur1.Location = new System.Drawing.Point(162, 105);
             this.lblJoueur1.Name = "lblJoueur1";
-            this.lblJoueur1.Size = new System.Drawing.Size(55, 15);
+            this.lblJoueur1.Size = new System.Drawing.Size(105, 26);
             this.lblJoueur1.TabIndex = 28;
             this.lblJoueur1.Text = "Joueur 1";
             this.lblJoueur1.Visible = false;
@@ -452,12 +467,12 @@
             // 
             this.lblScore1.AutoSize = true;
             this.lblScore1.BackColor = System.Drawing.Color.Transparent;
-            this.lblScore1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblScore1.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore1.ForeColor = System.Drawing.Color.White;
             this.lblScore1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScore1.Location = new System.Drawing.Point(162, 426);
+            this.lblScore1.Location = new System.Drawing.Point(163, 419);
             this.lblScore1.Name = "lblScore1";
-            this.lblScore1.Size = new System.Drawing.Size(48, 15);
+            this.lblScore1.Size = new System.Drawing.Size(85, 23);
             this.lblScore1.TabIndex = 33;
             this.lblScore1.Text = "Score : ";
             this.lblScore1.Visible = false;
@@ -466,12 +481,12 @@
             // 
             this.lblScore2.AutoSize = true;
             this.lblScore2.BackColor = System.Drawing.Color.Transparent;
-            this.lblScore2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblScore2.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore2.ForeColor = System.Drawing.Color.White;
             this.lblScore2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScore2.Location = new System.Drawing.Point(363, 426);
+            this.lblScore2.Location = new System.Drawing.Point(361, 418);
             this.lblScore2.Name = "lblScore2";
-            this.lblScore2.Size = new System.Drawing.Size(48, 15);
+            this.lblScore2.Size = new System.Drawing.Size(85, 23);
             this.lblScore2.TabIndex = 34;
             this.lblScore2.Text = "Score : ";
             this.lblScore2.Visible = false;
@@ -480,12 +495,12 @@
             // 
             this.lblScore3.AutoSize = true;
             this.lblScore3.BackColor = System.Drawing.Color.Transparent;
-            this.lblScore3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblScore3.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore3.ForeColor = System.Drawing.Color.White;
             this.lblScore3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScore3.Location = new System.Drawing.Point(556, 426);
+            this.lblScore3.Location = new System.Drawing.Point(557, 419);
             this.lblScore3.Name = "lblScore3";
-            this.lblScore3.Size = new System.Drawing.Size(48, 15);
+            this.lblScore3.Size = new System.Drawing.Size(85, 23);
             this.lblScore3.TabIndex = 35;
             this.lblScore3.Text = "Score : ";
             this.lblScore3.Visible = false;
@@ -494,12 +509,12 @@
             // 
             this.lblScore4.AutoSize = true;
             this.lblScore4.BackColor = System.Drawing.Color.Transparent;
-            this.lblScore4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblScore4.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore4.ForeColor = System.Drawing.Color.White;
             this.lblScore4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScore4.Location = new System.Drawing.Point(747, 426);
+            this.lblScore4.Location = new System.Drawing.Point(748, 418);
             this.lblScore4.Name = "lblScore4";
-            this.lblScore4.Size = new System.Drawing.Size(48, 15);
+            this.lblScore4.Size = new System.Drawing.Size(85, 23);
             this.lblScore4.TabIndex = 36;
             this.lblScore4.Text = "Score : ";
             this.lblScore4.Visible = false;
@@ -508,12 +523,12 @@
             // 
             this.lblScore5.AutoSize = true;
             this.lblScore5.BackColor = System.Drawing.Color.Transparent;
-            this.lblScore5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblScore5.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore5.ForeColor = System.Drawing.Color.White;
             this.lblScore5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScore5.Location = new System.Drawing.Point(931, 426);
+            this.lblScore5.Location = new System.Drawing.Point(943, 418);
             this.lblScore5.Name = "lblScore5";
-            this.lblScore5.Size = new System.Drawing.Size(48, 15);
+            this.lblScore5.Size = new System.Drawing.Size(85, 23);
             this.lblScore5.TabIndex = 37;
             this.lblScore5.Text = "Score : ";
             this.lblScore5.Visible = false;
@@ -522,12 +537,12 @@
             // 
             this.score1.AutoSize = true;
             this.score1.BackColor = System.Drawing.Color.Transparent;
-            this.score1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.score1.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score1.ForeColor = System.Drawing.Color.White;
             this.score1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.score1.Location = new System.Drawing.Point(246, 426);
+            this.score1.Location = new System.Drawing.Point(245, 419);
             this.score1.Name = "score1";
-            this.score1.Size = new System.Drawing.Size(14, 15);
+            this.score1.Size = new System.Drawing.Size(22, 23);
             this.score1.TabIndex = 38;
             this.score1.Text = "0";
             this.score1.Visible = false;
@@ -536,12 +551,12 @@
             // 
             this.score2.AutoSize = true;
             this.score2.BackColor = System.Drawing.Color.Transparent;
-            this.score2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.score2.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score2.ForeColor = System.Drawing.Color.White;
             this.score2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.score2.Location = new System.Drawing.Point(447, 426);
+            this.score2.Location = new System.Drawing.Point(446, 418);
             this.score2.Name = "score2";
-            this.score2.Size = new System.Drawing.Size(14, 15);
+            this.score2.Size = new System.Drawing.Size(22, 23);
             this.score2.TabIndex = 39;
             this.score2.Text = "0";
             this.score2.Visible = false;
@@ -550,12 +565,12 @@
             // 
             this.score3.AutoSize = true;
             this.score3.BackColor = System.Drawing.Color.Transparent;
-            this.score3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.score3.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score3.ForeColor = System.Drawing.Color.White;
             this.score3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.score3.Location = new System.Drawing.Point(640, 426);
+            this.score3.Location = new System.Drawing.Point(643, 419);
             this.score3.Name = "score3";
-            this.score3.Size = new System.Drawing.Size(14, 15);
+            this.score3.Size = new System.Drawing.Size(22, 23);
             this.score3.TabIndex = 40;
             this.score3.Text = "0";
             this.score3.Visible = false;
@@ -564,12 +579,12 @@
             // 
             this.score4.AutoSize = true;
             this.score4.BackColor = System.Drawing.Color.Transparent;
-            this.score4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.score4.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score4.ForeColor = System.Drawing.Color.White;
             this.score4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.score4.Location = new System.Drawing.Point(831, 426);
+            this.score4.Location = new System.Drawing.Point(834, 418);
             this.score4.Name = "score4";
-            this.score4.Size = new System.Drawing.Size(14, 15);
+            this.score4.Size = new System.Drawing.Size(22, 23);
             this.score4.TabIndex = 41;
             this.score4.Text = "0";
             this.score4.Visible = false;
@@ -578,12 +593,12 @@
             // 
             this.score5.AutoSize = true;
             this.score5.BackColor = System.Drawing.Color.Transparent;
-            this.score5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.score5.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score5.ForeColor = System.Drawing.Color.White;
             this.score5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.score5.Location = new System.Drawing.Point(1015, 426);
+            this.score5.Location = new System.Drawing.Point(1030, 418);
             this.score5.Name = "score5";
-            this.score5.Size = new System.Drawing.Size(14, 15);
+            this.score5.Size = new System.Drawing.Size(22, 23);
             this.score5.TabIndex = 42;
             this.score5.Text = "0";
             this.score5.Visible = false;
@@ -594,7 +609,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::StupidVulture.Properties.Resources.Texture2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1292, 768);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.score5);
             this.Controls.Add(this.score4);
             this.Controls.Add(this.score3);

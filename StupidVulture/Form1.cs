@@ -82,6 +82,8 @@ namespace StupidVulture
                     }
                 }
             }
+
+            players.Reverse();
             Engine engine = new Engine(players);
             Game form = new Game(engine);
             this.Hide();
@@ -135,6 +137,8 @@ namespace StupidVulture
            
 
         }
+
+
 
     }     
 }
