@@ -470,7 +470,7 @@
             this.lblScore1.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore1.ForeColor = System.Drawing.Color.White;
             this.lblScore1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScore1.Location = new System.Drawing.Point(163, 419);
+            this.lblScore1.Location = new System.Drawing.Point(163, 402);
             this.lblScore1.Name = "lblScore1";
             this.lblScore1.Size = new System.Drawing.Size(85, 23);
             this.lblScore1.TabIndex = 33;
@@ -484,7 +484,7 @@
             this.lblScore2.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore2.ForeColor = System.Drawing.Color.White;
             this.lblScore2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScore2.Location = new System.Drawing.Point(361, 418);
+            this.lblScore2.Location = new System.Drawing.Point(361, 399);
             this.lblScore2.Name = "lblScore2";
             this.lblScore2.Size = new System.Drawing.Size(85, 23);
             this.lblScore2.TabIndex = 34;
@@ -498,7 +498,7 @@
             this.lblScore3.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore3.ForeColor = System.Drawing.Color.White;
             this.lblScore3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScore3.Location = new System.Drawing.Point(557, 419);
+            this.lblScore3.Location = new System.Drawing.Point(557, 402);
             this.lblScore3.Name = "lblScore3";
             this.lblScore3.Size = new System.Drawing.Size(85, 23);
             this.lblScore3.TabIndex = 35;
@@ -512,7 +512,7 @@
             this.lblScore4.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore4.ForeColor = System.Drawing.Color.White;
             this.lblScore4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScore4.Location = new System.Drawing.Point(748, 418);
+            this.lblScore4.Location = new System.Drawing.Point(748, 399);
             this.lblScore4.Name = "lblScore4";
             this.lblScore4.Size = new System.Drawing.Size(85, 23);
             this.lblScore4.TabIndex = 36;
@@ -526,7 +526,7 @@
             this.lblScore5.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore5.ForeColor = System.Drawing.Color.White;
             this.lblScore5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScore5.Location = new System.Drawing.Point(943, 418);
+            this.lblScore5.Location = new System.Drawing.Point(943, 402);
             this.lblScore5.Name = "lblScore5";
             this.lblScore5.Size = new System.Drawing.Size(85, 23);
             this.lblScore5.TabIndex = 37;
@@ -540,7 +540,7 @@
             this.score1.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score1.ForeColor = System.Drawing.Color.White;
             this.score1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.score1.Location = new System.Drawing.Point(245, 419);
+            this.score1.Location = new System.Drawing.Point(245, 399);
             this.score1.Name = "score1";
             this.score1.Size = new System.Drawing.Size(22, 23);
             this.score1.TabIndex = 38;
@@ -554,7 +554,7 @@
             this.score2.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score2.ForeColor = System.Drawing.Color.White;
             this.score2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.score2.Location = new System.Drawing.Point(446, 418);
+            this.score2.Location = new System.Drawing.Point(446, 399);
             this.score2.Name = "score2";
             this.score2.Size = new System.Drawing.Size(22, 23);
             this.score2.TabIndex = 39;
@@ -568,7 +568,7 @@
             this.score3.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score3.ForeColor = System.Drawing.Color.White;
             this.score3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.score3.Location = new System.Drawing.Point(643, 419);
+            this.score3.Location = new System.Drawing.Point(643, 399);
             this.score3.Name = "score3";
             this.score3.Size = new System.Drawing.Size(22, 23);
             this.score3.TabIndex = 40;
@@ -582,7 +582,7 @@
             this.score4.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score4.ForeColor = System.Drawing.Color.White;
             this.score4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.score4.Location = new System.Drawing.Point(834, 418);
+            this.score4.Location = new System.Drawing.Point(834, 399);
             this.score4.Name = "score4";
             this.score4.Size = new System.Drawing.Size(22, 23);
             this.score4.TabIndex = 41;
@@ -596,7 +596,7 @@
             this.score5.Font = new System.Drawing.Font("Kraash Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.score5.ForeColor = System.Drawing.Color.White;
             this.score5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.score5.Location = new System.Drawing.Point(1030, 418);
+            this.score5.Location = new System.Drawing.Point(1030, 402);
             this.score5.Name = "score5";
             this.score5.Size = new System.Drawing.Size(22, 23);
             this.score5.TabIndex = 42;

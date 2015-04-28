@@ -71,6 +71,7 @@
             // 
             // joueur1
             // 
+            this.joueur1.BackColor = System.Drawing.Color.Transparent;
             this.joueur1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.joueur1.Image = global::StupidVulture.Properties.Resources.Humain;
             resources.ApplyResources(this.joueur1, "joueur1");
@@ -80,6 +81,7 @@
             // 
             // joueur2
             // 
+            this.joueur2.BackColor = System.Drawing.Color.Transparent;
             this.joueur2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.joueur2.Image = global::StupidVulture.Properties.Resources.Facile;
             resources.ApplyResources(this.joueur2, "joueur2");
@@ -89,6 +91,7 @@
             // 
             // joueur3
             // 
+            this.joueur3.BackColor = System.Drawing.Color.Transparent;
             this.joueur3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.joueur3.Image = global::StupidVulture.Properties.Resources.Vide;
             resources.ApplyResources(this.joueur3, "joueur3");
@@ -98,6 +101,7 @@
             // 
             // joueur4
             // 
+            this.joueur4.BackColor = System.Drawing.Color.Transparent;
             this.joueur4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.joueur4.Image = global::StupidVulture.Properties.Resources.Vide;
             resources.ApplyResources(this.joueur4, "joueur4");
@@ -107,6 +111,7 @@
             // 
             // joueur5
             // 
+            this.joueur5.BackColor = System.Drawing.Color.Transparent;
             this.joueur5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.joueur5.Image = global::StupidVulture.Properties.Resources.None;
             resources.ApplyResources(this.joueur5, "joueur5");
