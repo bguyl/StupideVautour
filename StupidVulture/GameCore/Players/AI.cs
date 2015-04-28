@@ -50,7 +50,7 @@ namespace StupidVulture.GameCore.Players
         {
             foreach (PlayerCard card in remainingCards)
             {
-                UCB d = new UCB(card, 10);
+                UCB d = new UCB(card, 2);
                 data.Add(d);
             }
 
@@ -60,7 +60,9 @@ namespace StupidVulture.GameCore.Players
                 cl.clone(op);
                 virtualPlayers.Add(cl);
             }
-            
+
+            data.Reverse();
+
             int i = 1;
             foreach (UCB d in data)
             {
