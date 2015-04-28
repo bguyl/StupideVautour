@@ -25,6 +25,11 @@ namespace StupidVulture.GameCore.Players.AI_Tools
             this.alpha = parameter;
         }
 
+        public int Average
+        {
+            set { average = value; }
+            get { return average; } 
+        }
         public int Winning
         {
             set { winning = value; }
