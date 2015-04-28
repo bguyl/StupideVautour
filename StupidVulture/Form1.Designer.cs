@@ -55,6 +55,8 @@
             this.LaunchButton.BackgroundImage = global::StupidVulture.Properties.Resources.Button;
             resources.ApplyResources(this.LaunchButton, "LaunchButton");
             this.LaunchButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LaunchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.LaunchButton.FlatAppearance.BorderSize = 0;
             this.LaunchButton.ForeColor = System.Drawing.Color.Black;
             this.LaunchButton.Name = "LaunchButton";
             this.LaunchButton.UseVisualStyleBackColor = false;
@@ -65,6 +67,7 @@
             this.ExitButton.BackColor = System.Drawing.Color.Transparent;
             this.ExitButton.BackgroundImage = global::StupidVulture.Properties.Resources.Button;
             this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExitButton.FlatAppearance.BorderSize = 0;
             resources.ApplyResources(this.ExitButton, "ExitButton");
             this.ExitButton.ForeColor = System.Drawing.Color.Black;
             this.ExitButton.Name = "ExitButton";

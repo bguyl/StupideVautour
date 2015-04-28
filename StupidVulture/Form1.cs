@@ -27,6 +27,12 @@ namespace StupidVulture
         public Menu()
         {
             InitializeComponent();
+            LaunchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 255, 255, 255); //Transparent
+            ExitButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
+            LaunchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
+            ExitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
+            LaunchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
+            ExitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
 
         }
 
