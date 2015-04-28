@@ -16,6 +16,7 @@ namespace StupidVulture
     public partial class Game : Form
     {
 
+
         Engine engine;
         List<Bitmap> RedCards = new List<Bitmap>();
         List<Bitmap> BlueCards = new List<Bitmap>();
@@ -33,8 +34,14 @@ namespace StupidVulture
         public Game(Engine engine)
         {
 
-            this.engine = engine;
             InitializeComponent();
+            LaunchButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 255, 255, 255); //Transparent
+            ExitButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
+            LaunchButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
+            ExitButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
+            LaunchButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
+            ExitButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(0, 255, 255, 255);
+            this.engine = engine;
             CardsListInitialize(GameCore.Color.Blue, BlueCards);
             CardsListInitialize(GameCore.Color.Red, RedCards);
             CardsListInitialize(GameCore.Color.Green, GreenCards);
@@ -42,7 +49,6 @@ namespace StupidVulture
             CardsListInitialize(GameCore.Color.Purple, PurpleCards);
             CardsListInitialize();
             CardsBackInitialize();
-            labelScoreInitialize();
             DisplayHand();
             
 
@@ -257,6 +263,7 @@ namespace StupidVulture
 
         private void showTurnWinner(Player winner)
         {
+            String str;
             if(winner == null)
             {
                 MessageBox.Show("Personne ne remporte cette carte.");
@@ -272,6 +279,7 @@ namespace StupidVulture
             {
                 MessageBox.Show("Le joueur " + color + " remporte cette carte.");
             }
+
         }
 
         
@@ -336,6 +344,9 @@ namespace StupidVulture
 
         private void button2_Click(object sender, EventArgs e)
         {
+            LaunchButton.Enabled = false;
+            LaunchButton.Visible = false;
+            labelScoreInitialize();
             PictureBox pb;
             foreach (Control ctrl in hand.Controls)
             {
@@ -365,7 +376,6 @@ namespace StupidVulture
             h.play(index);
             handUpdate(index);
             }
-
 
         }
 

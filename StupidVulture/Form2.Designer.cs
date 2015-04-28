@@ -68,6 +68,7 @@
             this.score3 = new System.Windows.Forms.Label();
             this.score4 = new System.Windows.Forms.Label();
             this.score5 = new System.Windows.Forms.Label();
+            this.win = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.stack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player3)).BeginInit();
@@ -87,8 +88,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.c15)).BeginInit();
             this.playersCards.SuspendLayout();
             this.SuspendLayout();
@@ -179,8 +180,8 @@
             this.hand.Controls.Add(this.c10, 9, 0);
             this.hand.Controls.Add(this.c11, 10, 0);
             this.hand.Controls.Add(this.c12, 11, 0);
-            this.hand.Controls.Add(this.c14, 13, 0);
             this.hand.Controls.Add(this.c13, 12, 0);
+            this.hand.Controls.Add(this.c14, 13, 0);
             this.hand.Controls.Add(this.c15, 14, 0);
             this.hand.Location = new System.Drawing.Point(21, 613);
             this.hand.Name = "hand";
@@ -362,14 +363,16 @@
             // 
             // LaunchButton
             // 
-            this.LaunchButton.BackColor = System.Drawing.Color.White;
+            this.LaunchButton.BackColor = System.Drawing.Color.Transparent;
+            this.LaunchButton.BackgroundImage = global::StupidVulture.Properties.Resources.Button;
             this.LaunchButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.LaunchButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LaunchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LaunchButton.FlatAppearance.BorderSize = 0;
+            this.LaunchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LaunchButton.Font = new System.Drawing.Font("Kraash Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LaunchButton.ForeColor = System.Drawing.Color.Black;
             this.LaunchButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.LaunchButton.Location = new System.Drawing.Point(947, 492);
+            this.LaunchButton.Location = new System.Drawing.Point(935, 483);
             this.LaunchButton.Name = "LaunchButton";
             this.LaunchButton.Size = new System.Drawing.Size(159, 58);
             this.LaunchButton.TabIndex = 26;
@@ -379,15 +382,17 @@
             // 
             // ExitButton
             // 
-            this.ExitButton.BackColor = System.Drawing.Color.White;
+            this.ExitButton.BackColor = System.Drawing.Color.Transparent;
+            this.ExitButton.BackgroundImage = global::StupidVulture.Properties.Resources.Button;
             this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ExitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ExitButton.FlatAppearance.BorderSize = 0;
+            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitButton.Font = new System.Drawing.Font("Kraash Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitButton.ForeColor = System.Drawing.Color.Black;
             this.ExitButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ExitButton.Location = new System.Drawing.Point(1152, 492);
+            this.ExitButton.Location = new System.Drawing.Point(1145, 483);
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(157, 58);
+            this.ExitButton.Size = new System.Drawing.Size(159, 58);
             this.ExitButton.TabIndex = 27;
             this.ExitButton.Text = "Quitter";
             this.ExitButton.UseVisualStyleBackColor = false;
@@ -603,6 +608,17 @@
             this.score5.Text = "0";
             this.score5.Visible = false;
             // 
+            // win
+            // 
+            this.win.AutoSize = true;
+            this.win.BackColor = System.Drawing.Color.Transparent;
+            this.win.Font = new System.Drawing.Font("Kraash Black", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.win.Location = new System.Drawing.Point(498, 314);
+            this.win.Name = "win";
+            this.win.Size = new System.Drawing.Size(0, 139);
+            this.win.TabIndex = 44;
+            this.win.Visible = false;
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,6 +626,7 @@
             this.BackgroundImage = global::StupidVulture.Properties.Resources.Texture2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.win);
             this.Controls.Add(this.score5);
             this.Controls.Add(this.score4);
             this.Controls.Add(this.score3);
@@ -706,5 +723,6 @@
         private System.Windows.Forms.Label score3;
         private System.Windows.Forms.Label score4;
         private System.Windows.Forms.Label score5;
+        private System.Windows.Forms.Label win;
     }
 }

@@ -132,7 +132,7 @@
     <value>NoControl</value>
   </data>
   <data name="LaunchButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>486, 650</value>
+    <value>471, 650</value>
   </data>
   <data name="LaunchButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 58</value>
@@ -163,7 +163,7 @@
     <value>Kraash Black, 12pt</value>
   </data>
   <data name="ExitButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>717, 650</value>
+    <value>738, 650</value>
   </data>
   <data name="ExitButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>159, 58</value>
