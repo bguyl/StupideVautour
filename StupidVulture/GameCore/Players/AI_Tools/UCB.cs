@@ -13,8 +13,8 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         private int nbPlayed;
         private int winning;
         private double confident = 0;
-        private int average;
-        private int alpha;
+        private double average;
+        private double alpha;
      
         /*public static List<UCB> data = new List<UCB>();
         private static UCB upperConfident;*/
@@ -25,7 +25,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
             this.alpha = parameter;
         }
 
-        public int Average
+        public double Average
         {
             set { average = value; }
             get { return average; } 

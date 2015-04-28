@@ -23,15 +23,15 @@ namespace StupidVulture.GameCore.Players
             int param = 2;
             switch (difficulty)
             {
-                case Difficulty.EASY: param = 2; break;
+                case Difficulty.EASY: param = 3; break;
                 case Difficulty.MEDIUM: param = 3; break;
                 default: param = 4; break;
             }
-            foreach (PlayerCard card in remainingCards)
+            /*foreach (PlayerCard card in remainingCards)
             {
                 UCB d = new UCB(card, param);
                 data.Add(d);
-            }
+            }*/
         }
 
         public List<Player> Opponent
@@ -48,8 +48,11 @@ namespace StupidVulture.GameCore.Players
         /// <returns>The card played</returns>
         public override PlayerCard play(PointCard point)
         {
-            if (remainingCards.Count() == 1)
-                return remainingCards[0];
+            foreach (PlayerCard card in remainingCards)
+            {
+                UCB d = new UCB(card, 2);
+                data.Add(d);
+            }
 
             //TODO Error when serveral AI : The card played is missing when cloning         
             foreach(Player op in opponent){
@@ -57,7 +60,7 @@ namespace StupidVulture.GameCore.Players
                 cl.clone(op);
                 virtualPlayers.Add(cl);
             }
-
+            
             int i = 1;
             foreach (UCB d in data)
             {
@@ -87,8 +90,7 @@ namespace StupidVulture.GameCore.Players
                     d.confidentCalculation(i);
             }
 
-            /*
-            for (int i = 0; i < 100000; i++) { 
+            /*for (int i = 0; i < 100000; i++) { 
                 foreach (UCB d in data)
                 {
                     d.NbPlayed++;
@@ -103,15 +105,15 @@ namespace StupidVulture.GameCore.Players
 
             foreach (UCB d in data)
             {
-                Console.WriteLine("Carte " + d.Card.Value + " : " + d.Confident);
+                Console.WriteLine("Carte " + d.Card.Value + " - Confiance: " + d.Confident+" / Average: "+d.Average+" / NbPlayer :"+d.NbPlayed+" / Winning: "+d.Winning);
             }
             
-
+            Console.WriteLine("===================================================================================================================");
             virtualPlayers.Clear();
             UCB CurrentUCB = findUpperConfident();
             //UCB CurrentUCB = findUpperAverage();
             CurrentPlayerCard = CurrentUCB.Card;
-            data.Remove(CurrentUCB);
+            data.Clear();
             RemainingCards.Remove(CurrentPlayerCard);
             return CurrentPlayerCard;
         }
