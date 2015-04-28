@@ -122,11 +122,14 @@
     <value>None</value>
   </data>
   <data name="LaunchButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
+    <value>Flat</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="LaunchButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Kraash Black, 12pt</value>
+  </data>
+  <data name="LaunchButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="LaunchButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>486, 650</value>
@@ -154,7 +157,7 @@
     <value>12</value>
   </data>
   <data name="ExitButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
+    <value>Flat</value>
   </data>
   <data name="ExitButton.Font" type="System.Drawing.Font, System.Drawing">
     <value>Kraash Black, 12pt</value>
@@ -163,7 +166,7 @@
     <value>717, 650</value>
   </data>
   <data name="ExitButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 58</value>
+    <value>159, 58</value>
   </data>
   <data name="ExitButton.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
