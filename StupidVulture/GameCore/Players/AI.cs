@@ -37,8 +37,8 @@ namespace StupidVulture.GameCore.Players
         {
             switch (difficulty)
             {
-                case Difficulty.EASY : return play(point, 0);
-                case Difficulty.MEDIUM : return play(point, 1);
+                case Difficulty.EASY : return play(point, 2);
+                case Difficulty.MEDIUM : return play(point, 2);
                 default: return play(point, 2);
             }
         }
@@ -66,7 +66,7 @@ namespace StupidVulture.GameCore.Players
                 foreach (Clone vp in virtualPlayers)
                     vp.play(point);
                 if (winAgainstClone(point, d.Card))
-                    d.NbWon++;
+                    d.Winning += point.Value - d.Card.Value;
                 i++;
             }
 
@@ -79,7 +79,7 @@ namespace StupidVulture.GameCore.Players
                 }
                 UCB currentData = findUpperConfident();
                 if (winAgainstClone(point, currentData.Card))
-                    currentData.NbWon++;
+                    currentData.Winning += point.Value - currentData.Card.Value;
                 foreach (UCB d in data)
                     d.confidentCalculation(i);
             }

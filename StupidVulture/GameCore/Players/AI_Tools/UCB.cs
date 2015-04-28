@@ -11,7 +11,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
     {
         private PlayerCard card;
         private int nbPlayed;
-        private int nbWon;
+        private int winning;
         private double confident = 0;
         private int average;
         private int alpha;
@@ -25,10 +25,10 @@ namespace StupidVulture.GameCore.Players.AI_Tools
             this.alpha = parameter;
         }
 
-        public int NbWon
+        public int Winning
         {
-            set { nbWon = value; }
-            get { return nbWon; }
+            set { winning = value; }
+            get { return winning; }
         }
 
         public double Confident
@@ -61,7 +61,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
 
         public void averageCalculation()
         {
-            average = nbWon / nbPlayed;
+            average = winning / nbPlayed;
         }
     }
 }
