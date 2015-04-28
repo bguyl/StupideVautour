@@ -46,7 +46,7 @@ namespace StupidVulture.GameCore.Players
         /// </summary>
         /// <param name="param">UCB parameter \alpha</param>
         /// <returns>The card played</returns>
-        public PlayerCard play(PointCard point)
+        public override PlayerCard play(PointCard point)
         {
             //TODO Error when serveral AI : The card played is missing when cloning         
             foreach(Player op in opponent){
