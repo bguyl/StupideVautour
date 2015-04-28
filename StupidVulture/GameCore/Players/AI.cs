@@ -66,20 +66,28 @@ namespace StupidVulture.GameCore.Players
             }
 
 
-            for (int i = 0; i < 100000; i++)
+            foreach (UCB d in data)
+            {
+                d.NbPlayed++;
+                d.confidentCalculation(1);
+                foreach (Clone vp in virtualPlayers)
+                    vp.play(point);
+                if (winAgainstClone(point, d.Card))
+                    d.NbWon++;
+            }
+
+            for (int i = 16; i < 100000; i++)
             {
 
                 foreach(Clone vp in virtualPlayers)
                 {
                     vp.play(point);
                 }
-                PlayerCard card  = UCBPlay(i);
-
-                if (winAgainstClone(point, card))
-                {
-                    addWin();
-                }
-
+                UCB currentData = findUpperConfident();
+                if (winAgainstClone(point, currentData.Card))
+                    currentData.NbWon++;
+                foreach (UCB d in data)
+                    d.confidentCalculation(i);
             }
 
             UCB CurrentUCB = findUpperConfident();
@@ -105,7 +113,8 @@ namespace StupidVulture.GameCore.Players
                 if (d.Confident == 0)
                 {
                     PlayerCard card = d.Card;
-                    d.confidentCalculation(i);
+                    d.NbPlayed++;
+                    d.confidentCalculation(i+1);
                     return card;
                 }
                 else
@@ -213,12 +222,6 @@ namespace StupidVulture.GameCore.Players
             upperConfident = tmp;
             return tmp;
         }
-
-        public void addWin()
-        {
-            upperConfident.NbWon++;
-        }
-
 
         private PlayerCard playRnd(){
             int i = rand.Next(remainingCards.Count() - 1);
