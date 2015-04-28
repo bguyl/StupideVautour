@@ -15,8 +15,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         private int confident = 0;
         private int average;
         private int alpha;
-
-        private static int nbOfPlays;
+     
         /*public static List<UCB> data = new List<UCB>();
         private static UCB upperConfident;*/
 
@@ -42,13 +41,13 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         /// </summary>
         public PlayerCard Card
         {
-            get { nbPlayed++; nbOfPlays++; return card; }
+            get { nbPlayed++; return card; }
         }
 
         /// <summary>
         /// Calculation of confident of UCB algorithm -> See the report
         /// </summary>
-        public void confidentCalculation(){
+        public void confidentCalculation(int nbOfPlays){
             averageCalculation();
             int logt = (int)Math.Log(nbOfPlays);
             confident = average + (alpha*logt)/(nbPlayed);

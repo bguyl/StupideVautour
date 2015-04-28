@@ -73,7 +73,7 @@ namespace StupidVulture.GameCore.Players
                 {
                     vp.play(point);
                 }
-                PlayerCard card  = UCBPlay();
+                PlayerCard card  = UCBPlay(i);
 
                 if (winAgainstClone(point, card))
                 {
@@ -96,17 +96,22 @@ namespace StupidVulture.GameCore.Players
         /// Choose a card to test with the UCB algorithm.
         /// </summary>
         /// <returns>The card we want to test</returns>
-        private PlayerCard UCBPlay()
+        private PlayerCard UCBPlay(int i)
         {
             UCB current = findUpperConfident();
             foreach (UCB d in data)
             {
-                //if()
-
-                d.confidentCalculation();
 
                 if (d.Confident == 0)
-                    return d.Card;
+                {
+                    PlayerCard card = d.Card;
+                    d.confidentCalculation(i);
+                    return card;
+                }
+                else
+                {
+                    d.confidentCalculation(i);
+                }
                 
             }
             return current.Card;
