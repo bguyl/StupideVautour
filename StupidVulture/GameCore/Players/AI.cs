@@ -7,7 +7,7 @@ using StupidVulture.GameCore.Players.AI_Tools;
 
 namespace StupidVulture.GameCore.Players
 {
-    public enum Difficulty {EASY, MEDIUM, HARD, RANDOM};
+    public enum Difficulty {EASY, MEDIUM, HARD};
 
     public class AI : Player
     {
@@ -15,9 +15,6 @@ namespace StupidVulture.GameCore.Players
         private List<Player> opponent = new List<Player>();
         private List<Clone> virtualPlayers = new List<Clone>();
         private List<UCB> data = new List<UCB>();
-
-        static Random rand = new Random();
-
         private UCB upperConfident;
 
         public AI(Color color, Difficulty difficulty) : base(color)
@@ -42,13 +39,8 @@ namespace StupidVulture.GameCore.Players
             {
                 case Difficulty.EASY : return play(point, 0);
                 case Difficulty.MEDIUM : return play(point, 1);
-                case Difficulty.HARD : return play(point, 2);
-                default : break;
+                default: return play(point, 2);
             }
-            int i = rand.Next(remainingCards.Count() - 1);
-            currentPlayerCard = remainingCards[i];
-            remainingCards.Remove(currentPlayerCard);
-            return currentPlayerCard;
         }
 
         /// <summary>
@@ -65,18 +57,20 @@ namespace StupidVulture.GameCore.Players
                 virtualPlayers.Add(cl);
             }
 
-
+            int i = 1;
             foreach (UCB d in data)
             {
+
                 d.NbPlayed++;
-                d.confidentCalculation(1);
+                d.confidentCalculation(i);
                 foreach (Clone vp in virtualPlayers)
                     vp.play(point);
                 if (winAgainstClone(point, d.Card))
                     d.NbWon++;
+                i++;
             }
 
-            for (int i = 16; i < 100000; i++)
+            for (i = 16; i < 10000; i++)
             {
 
                 foreach(Clone vp in virtualPlayers)
@@ -93,38 +87,10 @@ namespace StupidVulture.GameCore.Players
             UCB CurrentUCB = findUpperConfident();
             CurrentPlayerCard = CurrentUCB.Card;
             data.Remove(CurrentUCB);
-            Console.WriteLine(CurrentPlayerCard.ToString());
             RemainingCards.Remove(CurrentPlayerCard);
             return CurrentPlayerCard;
-            //return playRnd();
         }
 
-
-        /// <summary>
-        /// Choose a card to test with the UCB algorithm.
-        /// </summary>
-        /// <returns>The card we want to test</returns>
-        private PlayerCard UCBPlay(int i)
-        {
-            UCB current = findUpperConfident();
-            foreach (UCB d in data)
-            {
-
-                if (d.Confident == 0)
-                {
-                    PlayerCard card = d.Card;
-                    d.NbPlayed++;
-                    d.confidentCalculation(i+1);
-                    return card;
-                }
-                else
-                {
-                    d.confidentCalculation(i);
-                }
-                
-            }
-            return current.Card;
-        }
 
         /// <summary>
         /// Test if the current card win against the virtual clone.
@@ -221,13 +187,6 @@ namespace StupidVulture.GameCore.Players
                     tmp = d;
             upperConfident = tmp;
             return tmp;
-        }
-
-        private PlayerCard playRnd(){
-            int i = rand.Next(remainingCards.Count() - 1);
-            currentPlayerCard = remainingCards[i];
-            remainingCards.Remove(currentPlayerCard);
-            return currentPlayerCard;
         }
     }
 }

@@ -27,8 +27,7 @@ namespace StupidVulture
         public Menu()
         {
             InitializeComponent();
-            LaunchButton.BackColor = System.Drawing.Color.FromArgb(122, 122, 122);
-            ExitButton.BackColor = System.Drawing.Color.FromArgb(122, 122, 122);
+
         }
 
         private void LaunchButton_Click(object sender, EventArgs e)

@@ -655,8 +655,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.c10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.c14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.c14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.c15)).EndInit();
             this.playersCards.ResumeLayout(false);
             this.ResumeLayout(false);

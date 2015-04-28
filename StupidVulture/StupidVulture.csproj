@@ -123,6 +123,7 @@
     <None Include="Images\None.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\Button.png" />
     <Content Include="Images\Cards\Blue\Blue1.png" />
     <Content Include="Images\Cards\Blue\Blue10.png" />
     <Content Include="Images\Cards\Blue\Blue11.png" />
