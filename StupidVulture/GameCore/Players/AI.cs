@@ -48,6 +48,9 @@ namespace StupidVulture.GameCore.Players
         /// <returns>The card played</returns>
         public override PlayerCard play(PointCard point)
         {
+            if (remainingCards.Count() == 1)
+                return remainingCards[0];
+
             //TODO Error when serveral AI : The card played is missing when cloning         
             foreach(Player op in opponent){
                 Clone cl = new Clone(op.Color);
