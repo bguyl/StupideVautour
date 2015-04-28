@@ -12,7 +12,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         private PlayerCard card;
         private int nbPlayed;
         private int nbWon;
-        private int confident = 0;
+        private double confident = 0;
         private int average;
         private int alpha;
      
@@ -31,9 +31,15 @@ namespace StupidVulture.GameCore.Players.AI_Tools
             get { return nbWon; }
         }
 
-        public int Confident
+        public double Confident
         {
             get { return confident; }
+        }
+
+        public int NbPlayed
+        {
+            set { nbPlayed = value; }
+            get { return nbPlayed; }
         }
 
         /// <summary>
@@ -41,7 +47,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         /// </summary>
         public PlayerCard Card
         {
-            get { nbPlayed++; return card; }
+            get { return card; }
         }
 
         /// <summary>
@@ -49,7 +55,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         /// </summary>
         public void confidentCalculation(int nbOfPlays){
             averageCalculation();
-            int logt = (int)Math.Log(nbOfPlays);
+            double logt = Math.Log(nbOfPlays);
             confident = average + (alpha*logt)/(nbPlayed);
         }
 
@@ -57,6 +63,5 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         {
             average = nbWon / nbPlayed;
         }
-
     }
 }
