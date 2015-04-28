@@ -20,9 +20,16 @@ namespace StupidVulture.GameCore.Players
         public AI(Color color, Difficulty difficulty) : base(color)
         {
             this.difficulty = difficulty;
+            int param = 2;
+            switch (difficulty)
+            {
+                case Difficulty.EASY: param = 2; break;
+                case Difficulty.MEDIUM: param = 3; break;
+                default: param = 25; break;
+            }
             foreach (PlayerCard card in remainingCards)
             {
-                UCB d = new UCB(card, 2);
+                UCB d = new UCB(card, param);
                 data.Add(d);
             }
         }
@@ -33,22 +40,13 @@ namespace StupidVulture.GameCore.Players
             set { opponent = value; }
         }
 
-        public override PlayerCard play(PointCard point)
-        {
-            switch (difficulty)
-            {
-                case Difficulty.EASY : return play(point, 2);
-                case Difficulty.MEDIUM : return play(point, 2);
-                default: return play(point, 2);
-            }
-        }
 
         /// <summary>
         /// Create numerous virtual game and choose the best card.
         /// </summary>
         /// <param name="param">UCB parameter \alpha</param>
         /// <returns>The card played</returns>
-        public PlayerCard play(PointCard point, int param)
+        public PlayerCard play(PointCard point)
         {
             //TODO Error when serveral AI : The card played is missing when cloning         
             foreach(Player op in opponent){
