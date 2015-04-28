@@ -72,20 +72,22 @@ namespace StupidVulture.GameCore.Players
 
             }
 
-            for (i = 16; i < 10000; i++)
+            foreach(UCB d in data)
             {
-                foreach(Clone vp in virtualPlayers)
+                for(i = 0 ; i <1000;i++)
+                {
+                    foreach(Clone vp in virtualPlayers)
                 {
                     vp.play(point);
                 }
-                UCB currentData = findUpperConfident();
-                currentData.NbPlayed++;
-                currentData.Winning = currentData.Winning - currentData.Card.Value;
-                if (winAgainstClone(point, currentData.Card))
-                    currentData.Winning = currentData.Winning + point.Value;
-                foreach (UCB d in data)
-                    d.confidentCalculation(i);
+                d.NbPlayed++;
+                if (winAgainstClone(point, d.Card))
+                    d.Winning += d.Confident * (point.Value / d.Card.Value);
+                foreach (UCB da in data)
+                    da.confidentCalculation(i);
+                }
             }
+
 
             /*
             for (int i = 0; i < 100000; i++) { 
@@ -108,7 +110,7 @@ namespace StupidVulture.GameCore.Players
             
 
             virtualPlayers.Clear();
-            UCB CurrentUCB = findUpperConfident();
+            UCB CurrentUCB = findUpperWinning();
             //UCB CurrentUCB = findUpperAverage();
             CurrentPlayerCard = CurrentUCB.Card;
             data.Remove(CurrentUCB);
@@ -221,6 +223,15 @@ namespace StupidVulture.GameCore.Players
                 if (tmp.Average < d.Average)
                     tmp = d;
             upperConfident = tmp;
+            return tmp;
+        }
+
+        public UCB findUpperWinning()
+        {
+            UCB tmp = data[0];
+            foreach (UCB d in data)
+                if (tmp.Winning < d.Winning)
+                    tmp = d;
             return tmp;
         }
     }
