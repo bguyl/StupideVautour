@@ -50,7 +50,7 @@ namespace StupidVulture.GameCore.Players
         /// <returns>The card played</returns>
         public PlayerCard play(PointCard point, int param)
         {
-            //TODO implement Monte-Carlos & UCB            
+            //TODO Error when serveral AI : The card played is missing when cloning         
             foreach(Player op in opponent){
                 Clone cl = new Clone(op.Color);
                 cl.clone(op);
@@ -84,6 +84,8 @@ namespace StupidVulture.GameCore.Players
                     d.confidentCalculation(i);
             }
 
+
+            virtualPlayers.Clear();
             UCB CurrentUCB = findUpperConfident();
             CurrentPlayerCard = CurrentUCB.Card;
             data.Remove(CurrentUCB);
