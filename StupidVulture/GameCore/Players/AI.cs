@@ -165,6 +165,7 @@ namespace StupidVulture.GameCore.Players
             if (difficulty == Difficulty.EASY)
                 return playEasy(point);
             if (difficulty == Difficulty.MEDIUM)
+
                 return playMedium(point);
  
             foreach (PlayerCard card in remainingCards)
