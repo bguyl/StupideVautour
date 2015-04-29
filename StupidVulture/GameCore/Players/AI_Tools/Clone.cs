@@ -24,7 +24,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         public void clone(Player player) {
             score = player.Score;
             color = player.Color;
-            remainingCards = player.RemainingCards;
+            remainingCards = new List<PlayerCard>(player.RemainingCards);
             currentPlayerCard = player.CurrentPlayerCard;
         }
 
