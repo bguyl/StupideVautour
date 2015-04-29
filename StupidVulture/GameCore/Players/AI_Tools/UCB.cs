@@ -15,7 +15,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         private double confident = 0;
         private double average;
         private double alpha;
-     
+
         /*public static List<UCB> data = new List<UCB>();
         private static UCB upperConfident;*/
 
@@ -28,7 +28,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         public double Average
         {
             set { average = value; }
-            get { return average; } 
+            get { return average; }
         }
         public double Winning
         {
@@ -58,15 +58,16 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         /// <summary>
         /// Calculation of confident of UCB algorithm -> See the report
         /// </summary>
-        public void confidentCalculation(int nbOfPlays){
+        public void confidentCalculation(int nbOfPlays)
+        {
             averageCalculation();
             double logt = Math.Log(nbOfPlays);
-            confident = average + (alpha*logt)/(nbPlayed);
+            confident = average + (alpha * logt) / (nbPlayed);
         }
 
         public void averageCalculation()
         {
-            average = (int)winning / nbPlayed;
+            average = winning / nbPlayed;
         }
     }
 }

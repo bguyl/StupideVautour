@@ -7,7 +7,7 @@ using StupidVulture.GameCore.Players.AI_Tools;
 
 namespace StupidVulture.GameCore.Players
 {
-    public enum Difficulty {EASY, MEDIUM, HARD, RANDOM};
+    public enum Difficulty { EASY, MEDIUM, HARD, RANDOM };
 
     public class AI : Player
     {
@@ -16,8 +16,9 @@ namespace StupidVulture.GameCore.Players
         private List<Clone> virtualPlayers = new List<Clone>();
         private List<UCB> data = new List<UCB>();
         private UCB upperConfident;
-
-        public AI(Color color, Difficulty difficulty) : base(color)
+        private List<PointCard> playedMiceVultures = new List<PointCard>();
+        public AI(Color color, Difficulty difficulty)
+            : base(color)
         {
             this.difficulty = difficulty;
             int param = 2;
@@ -40,7 +41,115 @@ namespace StupidVulture.GameCore.Players
             set { opponent = value; }
         }
 
+        public PlayerCard playEasy(PointCard point)
+        {
+            playedMiceVultures.Add(point);
+            int[] value = { 1, -1, 2, 3, -2, 4, 5, -3, 6, 7, -4, 8, 9, -5, 10 };
+            int[] cards = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+            List<PlayerCard> playableCards = new List<PlayerCard>();
+            int j = 0;
+            int i = 2;
+            int index = -1;
+            for (int z = 0; z < 15;z++ )
+            {
+                if (value[z] == point.Value)
+                {
+                    index = z;
+                    z = 15;
+                }
+            }
+                while (j <= 0)
+                {
+                    for (int k = index - i; k <= index + i; k++)
+                    {
+                        if (k >= 0 && k < 15)
+                        {
+                            PlayerCard playerCard = remainingCards.Find(card => card.Value == cards[k]);
+                            if (playerCard != null)
+                            {
+                                j++;
+                                playableCards.Add(playerCard);
+                            }
+                        }
 
+                    }
+                    i++;
+                }
+            int r = Program.rand.Next(playableCards.Count);
+            currentPlayerCard = playableCards[r];
+            remainingCards.Remove(playableCards[r]);
+            return playableCards[r];
+        }
+
+        public PlayerCard playMedium(PointCard point)
+        {
+            
+            int[] value = { 1, -1, 2, 3, -2, 4, 5, -3, 6, 7, -4, 8, 9, -5, 10 };
+            int[] cards = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+            List<PlayerCard> playableCards = new List<PlayerCard>();
+            int j = 0;
+            int i = 2;
+            int index = -1;
+            for (int z = 0; z < 15; z++)
+            {
+                if (value[z] == point.Value)
+                {
+                    index = z;
+                    z = 15;
+                }
+            }
+            while (j <= 0)
+            {
+                for (int k = index - i; k <= index + i; k++)
+                {
+                    if (k >= 0 && k < 15)
+                    {
+                        PlayerCard playerCard = remainingCards.Find(card => card.Value == cards[k]);
+                        if (playerCard != null)
+                        {
+                            j++;
+                            playableCards.Add(playerCard);
+                        }
+                    }
+
+                }
+                i++;
+            }
+
+            int moyenne;
+            if (playedMiceVultures.Count > 0)
+            {
+                int somme = 0;
+                for (int l = 0; l < playedMiceVultures.Count; l++)
+                {
+                    if (playedMiceVultures[l].Type == CardType.Mouse)
+                        somme += playedMiceVultures[l].Value;
+                    else
+                        somme += (-2) * playedMiceVultures[l].Value;
+                }
+                moyenne = somme / playedMiceVultures.Count;
+            }
+            else
+                moyenne = 0;
+            int r;
+            if(moyenne > point.Value && playableCards.Count >= 2)
+            {
+                r = Program.rand.Next(playableCards.Count / 2, playableCards.Count);
+            }
+            else if(moyenne < point.Value && playableCards.Count >=2)
+            {
+                r = Program.rand.Next(0, playableCards.Count / 2 + 1);
+            }
+            else
+            {
+                r = Program.rand.Next(playableCards.Count);
+            }
+
+            currentPlayerCard = playableCards[r];
+            remainingCards.Remove(playableCards[r]);
+            return playableCards[r];
+            playedMiceVultures.Add(point);
+        }
         /// <summary>
         /// Create numerous virtual game and choose the best card.
         /// </summary>
@@ -48,76 +157,62 @@ namespace StupidVulture.GameCore.Players
         /// <returns>The card played</returns>
         public override PlayerCard play(PointCard point)
         {
+            if (difficulty == Difficulty.EASY)
+                return playEasy(point);
+            if (difficulty == Difficulty.MEDIUM)
+                return playMedium(point);
+ 
+            if (remainingCards.Count() == 1)
+                return remainingCards[0];
+
             foreach (PlayerCard card in remainingCards)
             {
                 UCB d = new UCB(card, 2);
                 data.Add(d);
             }
 
-            //TODO Error when serveral AI : The card played is missing when cloning         
-            foreach(Player op in opponent){
+            //TODO Error when serveral AI : The card played is missing when cloning        
+            foreach (Player op in opponent)
+            {
                 Clone cl = new Clone(op.Color);
                 cl.clone(op);
                 virtualPlayers.Add(cl);
             }
-            
+
             int i = 1;
-            foreach (UCB d in data)
+            int tempWin;
+
+            foreach(UCB currentData in data)
             {
-                foreach (Clone vp in virtualPlayers)
-                    vp.play(point);
-                d.NbPlayed++;
-                d.Winning = d.Winning - d.Card.Value;
-                if (winAgainstClone(point, d.Card))
-                    d.Winning = d.Winning + point.Value;
-                d.confidentCalculation(i);
-                i++;
-
-            }
-
-            foreach(UCB d in data)
-            {
-                for(i = 0 ; i <1000;i++)
+                tempWin = 0;
+                for (i = 0; i <1000;i++)
                 {
-                    foreach(Clone vp in virtualPlayers)
-                {
-                    vp.play(point);
-                }
-                d.NbPlayed++;
-                if (winAgainstClone(point, d.Card))
-                    d.Winning += d.Confident * (point.Value / d.Card.Value);
-                foreach (UCB da in data)
-                    da.confidentCalculation(i);
-                }
-            }
-
-<<<<<<< HEAD
-
-            /*
-            for (int i = 0; i < 100000; i++) { 
-=======
-            /*for (int i = 0; i < 100000; i++) { 
->>>>>>> b6abc493997fd1cbd4273143853edaeb5b99595b
-                foreach (UCB d in data)
-                {
-                    d.NbPlayed++;
                     foreach (Clone vp in virtualPlayers)
+                    {
                         vp.play(point);
-                    d.Winning = d.Winning - d.Card.Value;
-                    if (winAgainstClone(point, d.Card))
-                        d.Winning = d.Winning + point.Value;
-                    d.averageCalculation();
+                    }
+                    currentData.NbPlayed++;
+                    if (winAgainstClone(point, currentData.Card))
+                        tempWin++;
+                    foreach (UCB d in data)
+                        d.confidentCalculation(i);
+
                 }
-            }*/
+                Console.WriteLine("tempwin : " + tempWin);
+                if(point.Value > 0)
+                    currentData.Winning = ((double)tempWin/100)*(((double)point.Value)/ ((double)currentData.Card.Value));
+                else
+                    currentData.Winning = ((double)tempWin/100)*(-2*((double)point.Value))/((double)currentData.Card.Value);
+            }
 
             foreach (UCB d in data)
             {
-                Console.WriteLine("Carte " + d.Card.Value + " - Confiance: " + d.Confident+" / Average: "+d.Average+" / NbPlayer :"+d.NbPlayed+" / Winning: "+d.Winning);
+                Console.WriteLine("Carte " + d.Card.Value + " - Confiance: " + d.Confident + " / Average: " + d.Average + " / NbPlayer :" + d.NbPlayed + " / Winning: " + d.Winning);
             }
-            
+
             Console.WriteLine("===================================================================================================================");
             virtualPlayers.Clear();
-            UCB CurrentUCB = findUpperWinning();
+            UCB CurrentUCB = findUpperConfident();
             //UCB CurrentUCB = findUpperAverage();
             CurrentPlayerCard = CurrentUCB.Card;
             data.Clear();
@@ -230,15 +325,6 @@ namespace StupidVulture.GameCore.Players
                 if (tmp.Average < d.Average)
                     tmp = d;
             upperConfident = tmp;
-            return tmp;
-        }
-
-        public UCB findUpperWinning()
-        {
-            UCB tmp = data[0];
-            foreach (UCB d in data)
-                if (tmp.Winning < d.Winning)
-                    tmp = d;
             return tmp;
         }
     }

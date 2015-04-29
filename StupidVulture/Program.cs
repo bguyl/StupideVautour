@@ -11,6 +11,8 @@ namespace StupidVulture
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
+        /// 
+        public static Random rand = new Random();
         [STAThread]
         static void Main()
         {
