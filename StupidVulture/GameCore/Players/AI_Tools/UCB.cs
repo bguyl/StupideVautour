@@ -15,7 +15,11 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         private double confident = 0;
         private double average;
         private double alpha;
-     
+
+        private double test; //winning * 2,75 test new formula
+        private double test2;
+        private double nbOfWin;
+
         /*public static List<UCB> data = new List<UCB>();
         private static UCB upperConfident;*/
 
@@ -67,6 +71,11 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         public void averageCalculation()
         {
             average = winning / nbPlayed;
+        }
+
+        public void testCalculation()
+        {
+            test2 = (nbOfWin / nbPlayed) * test;
         }
     }
 }
