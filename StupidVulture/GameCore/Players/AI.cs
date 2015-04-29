@@ -11,10 +11,10 @@ namespace StupidVulture.GameCore.Players
 
     public class AI : Player
     {
-        private Difficulty difficulty;
-        private List<Player> opponent = new List<Player>();
-        private List<Clone> virtualPlayers = new List<Clone>();
-        private List<UCB> data = new List<UCB>();
+        private Difficulty difficulty;                                                      
+        private List<Player> opponent = new List<Player>();                         //List of opponent only needed to create clones
+        private List<Clone> virtualPlayers = new List<Clone>();                     //List of clones. They have same card than the original but play randomly and never remove card
+        private List<UCB> data = new List<UCB>();                                   //UCB is a card plus datas in the virtualisation
         private List<PointCard> playedMiceVultures = new List<PointCard>();
         public AI(Color color, Difficulty difficulty)
             : base(color)
@@ -28,9 +28,15 @@ namespace StupidVulture.GameCore.Players
             set { opponent = value; }
         }
 
+        /// <summary>
+        /// Play randomly in a range determined by the Point Card value.
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns>The played card</returns>
         public PlayerCard playEasy(PointCard point)
         {
             playedMiceVultures.Add(point);
+            //For each value of point card, we select a range of value associated.
             int[] value = { 1, -1, 2, 3, -2, 4, 5, -3, 6, 7, -4, 8, 9, -5, 10 };
             int[] cards = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
             List<PlayerCard> playableCards = new List<PlayerCard>();
@@ -49,7 +55,7 @@ namespace StupidVulture.GameCore.Players
                 {
                     for (int k = index - i; k <= index + i; k++)
                     {
-                        if (k >= 0 && k < 15)
+                        if (k >= 0 && k < 15) 
                         {
                             PlayerCard playerCard = remainingCards.Find(card => card.Value == cards[k]);
                             if (playerCard != null)
@@ -62,12 +68,19 @@ namespace StupidVulture.GameCore.Players
                     }
                     i++;
                 }
+
+            //Play the card
             int r = Program.rand.Next(playableCards.Count);
             currentPlayerCard = playableCards[r];
             remainingCards.Remove(playableCards[r]);
             return playableCards[r];
         }
 
+        /// <summary>
+        /// Same as easy, but predicate the number of points remaing in the deck
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns>The played card</returns>
         public PlayerCard playMedium(PointCard point)
         {
             
@@ -103,6 +116,7 @@ namespace StupidVulture.GameCore.Players
                 i++;
             }
 
+            //Average calculation of remaining point
             int moyenne;
             if (playedMiceVultures.Count > 0)
             {
@@ -132,15 +146,22 @@ namespace StupidVulture.GameCore.Players
                 r = Program.rand.Next(playableCards.Count);
             }
 
+
+            //Play the card
             currentPlayerCard = playableCards[r];
             remainingCards.Remove(playableCards[r]);
             playedMiceVultures.Add(point);
             return playableCards[r];
         }
+
+
         /// <summary>
-        /// Create numerous virtual game and choose the best card.
+        /// Create numerous virtual game and choose the best card. Evaluate chances for 
+        /// an opponent to play specified cards.
+        /// Attribute a chance of victory for each card in our hand and regulate it with
+        /// the point card's value.
         /// </summary>
-        /// <param name="param">UCB parameter \alpha</param>
+        /// <param name="point"></param>
         /// <returns>The card played</returns>
         public override PlayerCard play(PointCard point)
         {
@@ -178,7 +199,6 @@ namespace StupidVulture.GameCore.Players
                 if (winAgainstClone(point, d.Card))
                 {
                     d.Winning = d.Winning + point.Value + foo;
-                    d.test = d.test + point.Value*2.75;
                     d.nbOfWin++;
                 }
                 d.confidentCalculation(i);
@@ -198,7 +218,6 @@ namespace StupidVulture.GameCore.Players
                 if (winAgainstClone(point, currentData.Card))
                 {
                     currentData.Winning = currentData.Winning + point.Value + foo;
-                    currentData.test = currentData.test + point.Value * 2.75;
                     currentData.nbOfWin++;
                 }
                 foreach (UCB d in data)
@@ -214,7 +233,6 @@ namespace StupidVulture.GameCore.Players
                     d.Winning = d.Winning - d.Card.Value;
                     if (winAgainstClone(point, d.Card)){
                         d.Winning = d.Winning + point.Value;
-                        d.test = d.test + point.Value * 2.75;
                         d.nbOfWin++;
                     }
                     d.testCalculation(point.Value);
@@ -327,6 +345,7 @@ namespace StupidVulture.GameCore.Players
 
         }
 
+
         public UCB findUpperConfident()
         {
             UCB tmp = data[0];
@@ -336,6 +355,7 @@ namespace StupidVulture.GameCore.Players
             return tmp;
         }
 
+
         public UCB findUpperAverage()
         {
             UCB tmp = data[0];
@@ -344,6 +364,7 @@ namespace StupidVulture.GameCore.Players
                     tmp = d;
             return tmp;
         }
+
 
         public UCB findUpperTest2()
         {
