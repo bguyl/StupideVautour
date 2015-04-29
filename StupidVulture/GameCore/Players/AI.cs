@@ -21,18 +21,6 @@ namespace StupidVulture.GameCore.Players
             : base(color)
         {
             this.difficulty = difficulty;
-            int param = 2;
-            switch (difficulty)
-            {
-                case Difficulty.EASY: param = 3; break;
-                case Difficulty.MEDIUM: param = 3; break;
-                default: param = 4; break;
-            }
-            /*foreach (PlayerCard card in remainingCards)
-            {
-                UCB d = new UCB(card, param);
-                data.Add(d);
-            }*/
         }
 
         public List<Player> Opponent
@@ -165,51 +153,68 @@ namespace StupidVulture.GameCore.Players
             if (remainingCards.Count() == 1)
                 return remainingCards[0];
 
-            foreach (PlayerCard card in remainingCards)
+                        foreach (PlayerCard card in remainingCards)
             {
                 UCB d = new UCB(card, 2);
                 data.Add(d);
             }
 
-            //TODO Error when serveral AI : The card played is missing when cloning        
-            foreach (Player op in opponent)
-            {
+            //TODO Error when serveral AI : The card played is missing when cloning         
+            foreach(Player op in opponent){
                 Clone cl = new Clone(op.Color);
                 cl.clone(op);
                 virtualPlayers.Add(cl);
             }
 
-            int i = 1;
-            int tempWin;
+            data.Reverse();
 
-            foreach(UCB currentData in data)
+            int i = 1, foo = 10;
+            foreach (UCB d in data)
             {
-                tempWin = 0;
-                for (i = 0; i <1000;i++)
-                {
-                    foreach (Clone vp in virtualPlayers)
-                    {
-                        vp.play(point);
-                    }
-                    currentData.NbPlayed++;
-                    if (winAgainstClone(point, currentData.Card))
-                        tempWin++;
-                    foreach (UCB d in data)
-                        d.confidentCalculation(i);
+                foreach (Clone vp in virtualPlayers)
+                    vp.play(point);
+                d.NbPlayed++;
+                d.Winning = d.Winning - d.Card.Value;
+                if (winAgainstClone(point, d.Card))
+                    d.Winning = d.Winning + point.Value + foo;
+                d.confidentCalculation(i);
+                i++;
 
-                }
-                Console.WriteLine("tempwin : " + tempWin);
-                if(point.Value > 0)
-                    currentData.Winning = ((double)tempWin/100)*(((double)point.Value)/ ((double)currentData.Card.Value));
-                else
-                    currentData.Winning = ((double)tempWin/100)*(-2*((double)point.Value))/((double)currentData.Card.Value);
             }
+
+            for (i = 16; i < 10000; i++)
+            {
+                foreach(Clone vp in virtualPlayers)
+                {
+                    vp.play(point);
+                }
+                UCB currentData = findUpperConfident();
+                currentData.NbPlayed++;
+                currentData.Winning = currentData.Winning - currentData.Card.Value;
+                if (winAgainstClone(point, currentData.Card))
+                    currentData.Winning = currentData.Winning + point.Value + foo;
+                foreach (UCB d in data)
+                    d.confidentCalculation(i);
+            }
+
+            /*for (int i = 0; i < 100000; i++) { 
+                foreach (UCB d in data)
+                {
+                    d.NbPlayed++;
+                    foreach (Clone vp in virtualPlayers)
+                        vp.play(point);
+                    d.Winning = d.Winning - d.Card.Value;
+                    if (winAgainstClone(point, d.Card))
+                        d.Winning = d.Winning + point.Value;
+                    d.averageCalculation();
+                }
+            }*/
 
             foreach (UCB d in data)
             {
-                Console.WriteLine("Carte " + d.Card.Value + " - Confiance: " + d.Confident + " / Average: " + d.Average + " / NbPlayer :" + d.NbPlayed + " / Winning: " + d.Winning);
+                Console.WriteLine("Carte " + d.Card.Value + " - Confiance: " + d.Confident+" / Average: "+d.Average+" / NbPlayer :"+d.NbPlayed+" / Winning: "+d.Winning);
             }
-
+            
             Console.WriteLine("===================================================================================================================");
             virtualPlayers.Clear();
             UCB CurrentUCB = findUpperConfident();
@@ -218,6 +223,7 @@ namespace StupidVulture.GameCore.Players
             data.Clear();
             RemainingCards.Remove(CurrentPlayerCard);
             return CurrentPlayerCard;
+        
         }
 
 

@@ -263,7 +263,6 @@ namespace StupidVulture
 
         private void showTurnWinner(Player winner)
         {
-            String str;
             if(winner == null)
             {
                 MessageBox.Show("Personne ne remporte cette carte.");
