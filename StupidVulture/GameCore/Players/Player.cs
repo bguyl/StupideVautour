@@ -6,54 +6,44 @@ using StupidVulture.GameCore.Cards;
 
 namespace StupidVulture.GameCore.Players
 {
-    public abstract class Player
-    {
+    public abstract class Player {
         protected int score;
         protected Color color;
-        protected List<PlayerCard> remainingCards;
-        protected List<PointCard> wonCards;
-        protected PlayerCard currentPlayerCard;
+        protected List<PlayerCard> remainingCards; //List of the player's remaining PlayerCard
+        protected PlayerCard currentPlayerCard; //PlayerCard currently played by the player
         private const int amountCard = 15;
 
-        public Player(Color playerColor)
-        {
+        /// <summary>
+        /// Public constructor 
+        /// </summary>
+        /// <param name="playerColor">Player's color</param>
+        public Player(Color playerColor) {
             Color = playerColor;
             Score = 0;
-            wonCards = new List<PointCard>();
             remainingCards = new List<PlayerCard>();
-            for(ushort i=1;i<=amountCard;i++)
-            {
+            for(ushort i=1;i<=amountCard;i++) {
                 remainingCards.Add(new PlayerCard(Color, i));
             }
         }
 
-        
 
-        public int Score
-        {
+        public int Score {
             get { return this.score; }
             set { this.score = value; }
         }
 
-        public Color Color 
-        {
+        public Color Color  {
             get { return color; }
             set { color = value; }
         }
 
-        public List<PlayerCard> RemainingCards
-        {
+        public List<PlayerCard> RemainingCards {
             get { return remainingCards; }
            
         }
 
-        public List<PointCard> WonCards
-        {
-            get { return wonCards; }
-        }
         
-        public PlayerCard CurrentPlayerCard
-        {
+        public PlayerCard CurrentPlayerCard {
             get { return currentPlayerCard; }
             set { currentPlayerCard = value; }
         }
@@ -61,5 +51,4 @@ namespace StupidVulture.GameCore.Players
         public abstract PlayerCard play(PointCard point);
         
     }
-   
 }

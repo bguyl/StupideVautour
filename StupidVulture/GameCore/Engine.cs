@@ -108,8 +108,7 @@ namespace StupidVulture.GameCore {
             return winner;
         }
 
-        public void incrementWinnerScore(Player winner)
-        {
+        public void incrementWinnerScore(Player winner) {
             winner.Score += currentCard.Value;
         }
 
