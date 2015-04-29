@@ -38,5 +38,10 @@ namespace StupidVulture.GameCore.Players.AI_Tools
             currentPlayerCard = remainingCards[i];
             return currentPlayerCard;
         }
+
+        public void addPlayedCard(PlayerCard pc)
+        {
+            RemainingCards.Add(pc);
+        }
     }
 }

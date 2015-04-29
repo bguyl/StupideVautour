@@ -170,19 +170,19 @@ namespace StupidVulture.GameCore.Players
             if (difficulty == Difficulty.MEDIUM)
                 return playMedium(point);
  
-            if (remainingCards.Count() == 1)
-                return remainingCards[0];
-
-                        foreach (PlayerCard card in remainingCards)
+            foreach (PlayerCard card in remainingCards)
             {
                 UCB d = new UCB(card, 2);
                 data.Add(d);
             }
 
-            //TODO Error when serveral AI : The card played is missing when cloning         
+            //TODO Error when serveral AI : The card played is missing when cloning
+            int turn = remainingCards.Count;
             foreach(Player op in opponent){
                 Clone cl = new Clone(op.Color);
                 cl.clone(op);
+                if (op.RemainingCards.Count < turn)
+                    cl.addPlayedCard(op.CurrentPlayerCard);
                 virtualPlayers.Add(cl);
             }
 
