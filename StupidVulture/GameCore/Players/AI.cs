@@ -20,18 +20,6 @@ namespace StupidVulture.GameCore.Players
         public AI(Color color, Difficulty difficulty) : base(color)
         {
             this.difficulty = difficulty;
-            int param = 2;
-            switch (difficulty)
-            {
-                case Difficulty.EASY: param = 3; break;
-                case Difficulty.MEDIUM: param = 3; break;
-                default: param = 4; break;
-            }
-            /*foreach (PlayerCard card in remainingCards)
-            {
-                UCB d = new UCB(card, param);
-                data.Add(d);
-            }*/
         }
 
         public List<Player> Opponent
@@ -63,7 +51,7 @@ namespace StupidVulture.GameCore.Players
 
             data.Reverse();
 
-            int i = 1;
+            int i = 1, foo = 10;
             foreach (UCB d in data)
             {
                 foreach (Clone vp in virtualPlayers)
@@ -71,7 +59,7 @@ namespace StupidVulture.GameCore.Players
                 d.NbPlayed++;
                 d.Winning = d.Winning - d.Card.Value;
                 if (winAgainstClone(point, d.Card))
-                    d.Winning = d.Winning + point.Value;
+                    d.Winning = d.Winning + point.Value + foo;
                 d.confidentCalculation(i);
                 i++;
 
@@ -87,7 +75,7 @@ namespace StupidVulture.GameCore.Players
                 currentData.NbPlayed++;
                 currentData.Winning = currentData.Winning - currentData.Card.Value;
                 if (winAgainstClone(point, currentData.Card))
-                    currentData.Winning = currentData.Winning + point.Value;
+                    currentData.Winning = currentData.Winning + point.Value + foo;
                 foreach (UCB d in data)
                     d.confidentCalculation(i);
             }
