@@ -20,7 +20,7 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         private double test; //winning * 2,75 test new formula
         private double test2;
         private double nbOfWin;
-
+        
 
         /*public static List<UCB> data = new List<UCB>();
         private static UCB upperConfident;*/
