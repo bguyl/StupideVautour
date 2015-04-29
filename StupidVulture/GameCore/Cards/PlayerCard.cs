@@ -9,7 +9,6 @@ namespace StupidVulture.GameCore.Cards
     {
         Color color;
         ushort value;
-        Boolean faceDown;
 
         public PlayerCard(Color color, ushort value) {
             this.color = color;
@@ -27,11 +26,6 @@ namespace StupidVulture.GameCore.Cards
         {
             set { this.value = value; }
             get { return value; }
-        }
-
-        public void TurnOver()
-        {
-            faceDown = !faceDown;
         }
     }
 }

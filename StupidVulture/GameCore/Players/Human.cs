@@ -31,7 +31,13 @@ namespace StupidVulture.GameCore.Players
             currentPlayerCard = remainingCards.Find(card => card.Value == i + 1);
             remainingCards.Remove(currentPlayerCard);
         }
+        
 
+        /// <summary>
+        /// Wait until the human player select a card
+        /// </summary>
+        /// <param name="point">The card currently in game</param>
+        /// <returns></returns>
         public override PlayerCard play(PointCard point)  {
             played = false;
             while(!played) {
@@ -40,7 +46,5 @@ namespace StupidVulture.GameCore.Players
             }
             return currentPlayerCard;
         }
-
-        
     }
 }

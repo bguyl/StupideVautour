@@ -21,16 +21,19 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         /// Copy the player for simulation
         /// </summary>
         /// <param name="player">The player to copy</param>
-        public void clone(Player player)
-        {
+        public void clone(Player player) {
             score = player.Score;
             color = player.Color;
             remainingCards = player.RemainingCards;
-            wonCards = player.WonCards;
             currentPlayerCard = player.CurrentPlayerCard;
         }
-        public override PlayerCard play(PointCard point)
-        {
+
+        /// <summary>
+        /// Random play for the clones
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        public override PlayerCard play(PointCard point) {
             int i = rand.Next(remainingCards.Count());
             currentPlayerCard = remainingCards[i];
             return currentPlayerCard;
