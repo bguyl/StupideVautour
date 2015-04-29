@@ -37,34 +37,31 @@ namespace StupidVulture.GameCore.Players
         {
             playedMiceVultures.Add(point);
             //For each value of point card, we select a range of value associated.
-            int[] value = { 1, -1, 2, 3, -2, 4, 5, -3, 6, 7, -4, 8, 9, -5, 10 };
-            int[] cards = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
-            List<PlayerCard> playableCards = new List<PlayerCard>();
+            int[] value = { 1, -1, 2, 3, -2, 4, 5, -3, 6, 7, -4, 8, 9, -5, 10 }; //PointCards sorted by value
+            int[] cards = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }; //PlayerCard
+            List<PlayerCard> playableCards = new List<PlayerCard>(); //List of playable cards
             int j = 0;
             int i = 2;
             int index = -1;
-            for (int z = 0; z < 15;z++ )
-            {
-                if (value[z] == point.Value)
-                {
+
+            //Get the index of the current PointCard
+            for (int z = 0; z < 15;z++ ) {
+                if (value[z] == point.Value) {
                     index = z;
                     z = 15;
                 }
             }
-                while (j <= 0)
-                {
-                    for (int k = index - i; k <= index + i; k++)
-                    {
-                        if (k >= 0 && k < 15) 
-                        {
+
+            //while the range is empty
+                while (j <= 0) {
+                    for (int k = index - i; k <= index + i; k++) {
+                        if (k >= 0 && k < 15)  {
                             PlayerCard playerCard = remainingCards.Find(card => card.Value == cards[k]);
-                            if (playerCard != null)
-                            {
+                            if (playerCard != null) {
                                 j++;
                                 playableCards.Add(playerCard);
                             }
                         }
-
                     }
                     i++;
                 }
