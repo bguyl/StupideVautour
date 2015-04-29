@@ -13,7 +13,7 @@ namespace StupidVulture.GameCore {
         private List<Player> players;
         private int nbPlayers;
         private List<PointCard> stack;
-        private PointCard currentCard = null; //The mouse or the vulture who is currently in play
+        private PointCard currentCard = null; //The mouse or the vulture currently in play
         private const int nbMice = 10;
         private const int nbVultures = 5;
         

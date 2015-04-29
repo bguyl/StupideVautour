@@ -14,9 +14,7 @@ using StupidVulture.Properties;
 
 namespace StupidVulture
 {
-    public partial class Menu : Form
-    {
-
+    public partial class Menu : Form {
 
         private Bitmap _human = Resources.Human;
         private Bitmap _easy = Resources.Easy;
@@ -36,6 +34,12 @@ namespace StupidVulture
 
         }
 
+
+        /// <summary>
+        /// Create players according to the selected PictureBox's
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LaunchButton_Click(object sender, EventArgs e)
         {
 
@@ -50,23 +54,19 @@ namespace StupidVulture
                 else if (i == 3) { gc = GameCore.Color.Yellow; }
                 else if (i == 4) { gc = GameCore.Color.Purple; }
 
-                if(picture.Image == _human)
-                {
+                if(picture.Image == _human) {
                     Human h = new Human(gc);
                     players.Add(h);
                 }
-                else if (picture.Image == _easy)
-                {
+                else if (picture.Image == _easy) {
                     AI easy = new AI(gc, Difficulty.EASY);
                         players.Add(easy);
                 }
-                else if (picture.Image == _medium)
-                {
+                else if (picture.Image == _medium) {
                     AI medium = new AI(gc, Difficulty.MEDIUM);
                        players.Add(medium);
                 }
-                else if (picture.Image == _hard)
-                {
+                else if (picture.Image == _hard) {
                     AI hard = new AI(gc, Difficulty.HARD);
                        players.Add(hard);
                 }
@@ -77,8 +77,7 @@ namespace StupidVulture
 
             foreach (Player pl in players)
             {
-                if (pl is AI)
-                {
+                if (pl is AI) {
                     AI plAI = (AI)pl;
                     foreach(Player op in players){
                         if(op != pl){
@@ -93,20 +92,13 @@ namespace StupidVulture
             Game form = new Game(engine);
             this.Hide();
             form.Show();
-            
-
-
-
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void button1_Click(object sender, EventArgs e) {
             Application.Exit();
         }
 
-        private void Menu_Load(object sender, EventArgs e)
-        {
-            
+        private void Menu_Load(object sender, EventArgs e) {   
             joueur1.Image = _human;
             joueur2.Image = _easy;
             joueur3.Image = _none;
@@ -115,11 +107,7 @@ namespace StupidVulture
 
         }
 
-        private void joueurX_Click(object sender, EventArgs e)
-        {
-            
-
-
+        private void joueurX_Click(object sender, EventArgs e) {
             PictureBox picture = (PictureBox)sender;
             if (picture.Image == _human)
                 picture.Image = _easy;
@@ -137,13 +125,7 @@ namespace StupidVulture
                 picture.Image = _easy;
 
             picture.Invalidate();
-            picture.Update();
-           
-           
-
+            picture.Update();  
         }
-
-
-
     }     
 }
