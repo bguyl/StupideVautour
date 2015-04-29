@@ -17,9 +17,9 @@ namespace StupidVulture.GameCore.Players.AI_Tools
         private double alpha;
 
 
-        private double test; //winning * 2,75 test new formula
-        private double test2;
-        private double nbOfWin;
+        public double test; //winning * 2,75 test new formula
+        public double test2;
+        public double nbOfWin;
 
 
         /*public static List<UCB> data = new List<UCB>();
@@ -76,9 +76,11 @@ namespace StupidVulture.GameCore.Players.AI_Tools
             average = winning / nbPlayed;
         }
 
-        public void testCalculation()
+        public void testCalculation(int point)
         {
-            test2 = (nbOfWin / nbPlayed) * test;
+            if (point < 0)
+                point = -2 * point;
+            test2 = (nbOfWin / nbPlayed) * ( point*2.75 - card.Value);
         }
     }
 }
