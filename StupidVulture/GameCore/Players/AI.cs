@@ -40,9 +40,9 @@ namespace StupidVulture.GameCore.Players
             int[] value = { 1, -1, 2, 3, -2, 4, 5, -3, 6, 7, -4, 8, 9, -5, 10 }; //PointCards sorted by value
             int[] cards = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }; //PlayerCard
             List<PlayerCard> playableCards = new List<PlayerCard>(); //List of playable cards
-            int j = 0;
-            int i = 2;
-            int index = -1;
+            bool testIntervale = false; //boolean variable used to test if there still are remaining cards in the interval
+            int largeurIntervale = 2; //initial width of the interval
+            int index = -1; //index location of the point card in the array value
 
             //Get the index of the current PointCard
             for (int z = 0; z < 15;z++ ) {
@@ -53,17 +53,21 @@ namespace StupidVulture.GameCore.Players
             }
 
             //while the range is empty
-                while (j <= 0) {
-                    for (int k = index - i; k <= index + i; k++) {
+                while (!testIntervale) {
+                    //for each card in the range
+                    for (int k = index - largeurIntervale; k <= index + largeurIntervale; k++) {
                         if (k >= 0 && k < 15)  {
+                            //if the card hasen't been played yet
                             PlayerCard playerCard = remainingCards.Find(card => card.Value == cards[k]);
+                            //if there is at least one card in the interval, testIntervale is true
                             if (playerCard != null) {
-                                j++;
+                                testIntervale = true;
                                 playableCards.Add(playerCard);
                             }
                         }
                     }
-                    i++;
+                    //width is incremented in case of we have to go through another loop 
+                    largeurIntervale++;
                 }
 
             //Play the card
@@ -80,13 +84,16 @@ namespace StupidVulture.GameCore.Players
         /// <returns>The played card</returns>
         public PlayerCard playMedium(PointCard point)
         {
-            
-            int[] value = { 1, -1, 2, 3, -2, 4, 5, -3, 6, 7, -4, 8, 9, -5, 10 };
-            int[] cards = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
-            List<PlayerCard> playableCards = new List<PlayerCard>();
-            int j = 0;
-            int i = 2;
-            int index = -1;
+
+            //For each value of point card, we select a range of value associated.
+            int[] value = { 1, -1, 2, 3, -2, 4, 5, -3, 6, 7, -4, 8, 9, -5, 10 }; //PointCards sorted by value
+            int[] cards = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }; //PlayerCard
+            List<PlayerCard> playableCards = new List<PlayerCard>(); //List of playable cards
+            bool testIntervale = false; //boolean variable used to test if there still are remaining cards in the interval
+            int largeurIntervale = 2; //initial width of the interval
+            int index = -1; //index location of the point card in the array value
+
+            //Get the index of the current PointCard
             for (int z = 0; z < 15; z++)
             {
                 if (value[z] == point.Value)
@@ -95,22 +102,28 @@ namespace StupidVulture.GameCore.Players
                     z = 15;
                 }
             }
-            while (j <= 0)
+
+            //while the range is empty
+            while (!testIntervale)
             {
-                for (int k = index - i; k <= index + i; k++)
+                //for each card in the range
+                for (int k = index - largeurIntervale; k <= index + largeurIntervale; k++)
                 {
                     if (k >= 0 && k < 15)
                     {
+                        //if the card hasen't been played yet
                         PlayerCard playerCard = remainingCards.Find(card => card.Value == cards[k]);
+                        //if there is at least one card in the interval, testIntervale is true
                         if (playerCard != null)
                         {
-                            j++;
+                            testIntervale = true;
                             playableCards.Add(playerCard);
                         }
                     }
 
                 }
-                i++;
+                //width is incremented in case of we have to go through another loop 
+                largeurIntervale++;
             }
 
             //Average calculation of remaining point
@@ -120,6 +133,7 @@ namespace StupidVulture.GameCore.Players
                 int somme = 0;
                 for (int l = 0; l < playedMiceVultures.Count; l++)
                 {
+                    //If it's a mouse, its priority is its value, if it's a vulture, its priority is 2*abs(value)
                     if (playedMiceVultures[l].Type == CardType.Mouse)
                         somme += playedMiceVultures[l].Value;
                     else
@@ -130,11 +144,16 @@ namespace StupidVulture.GameCore.Players
             else
                 moyenne = 0;
             int r;
-            if(moyenne > point.Value && playableCards.Count >= 2)
+
+            //If the mean value is above the card priority, higher cards are played
+            if((moyenne > point.Value && playableCards.Count >= 2 && point.Type == CardType.Mouse)
+                || (moyenne > ((-2)*point.Value) && playableCards.Count >=2 && point.Type == CardType.Vulture))
             {
                 r = Program.rand.Next(playableCards.Count / 2, playableCards.Count);
             }
-            else if(moyenne < point.Value && playableCards.Count >=2)
+            //If the priority is above the mean value, lower cards are played
+            if ((moyenne < point.Value && playableCards.Count >= 2 && point.Type == CardType.Mouse)
+                || (moyenne < ((-2) * point.Value) && playableCards.Count >= 2 && point.Type == CardType.Vulture))
             {
                 r = Program.rand.Next(0, playableCards.Count / 2 + 1);
             }
