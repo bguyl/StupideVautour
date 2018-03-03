@@ -14,7 +14,7 @@ namespace StupidVulture.GameCore.Players
         private Difficulty difficulty;                                                      
         private List<Player> opponent = new List<Player>();                         //List of opponent only needed to create clones
         private List<Clone> virtualPlayers = new List<Clone>();                     //List of clones. They have same card than the original but play randomly and never remove card
-        private List<UCB> data = new List<UCB>();                                   //UCB is a card plus datas in the virtualisation
+        private List<Data> data = new List<Data>();                                 //Data is a card plus datas in the virtualisation
         private List<PointCard> playedMiceVultures = new List<PointCard>();
         public AI(Color color, Difficulty difficulty)
             : base(color)
@@ -179,17 +179,10 @@ namespace StupidVulture.GameCore.Players
         /// </summary>
         /// <param name="point"></param>
         /// <returns>The card played</returns>
-        public override PlayerCard play(PointCard point)
-        {
-            if (difficulty == Difficulty.EASY)
-                return playEasy(point);
-            if (difficulty == Difficulty.MEDIUM)
-
-                return playMedium(point);
- 
+        public PlayerCard playHard(PointCard point){
             foreach (PlayerCard card in remainingCards)
             {
-                UCB d = new UCB(card, 2);
+                Data d = new Data(card, 2);
                 data.Add(d);
             }
 
@@ -203,46 +196,9 @@ namespace StupidVulture.GameCore.Players
                 virtualPlayers.Add(cl);
             }
 
-            /*
-            data.Reverse();
 
-            int i = 1, foo = 0;
-            foreach (UCB d in data)
-            {
-                foreach (Clone vp in virtualPlayers)
-                    vp.play(point);
-                d.NbPlayed++;
-                d.Winning = d.Winning - d.Card.Value;
-                if (winAgainstClone(point, d.Card))
-                {
-                    d.Winning = d.Winning + point.Value + foo;
-                    d.nbOfWin++;
-                }
-                d.confidentCalculation(i);
-                i++;
-
-            }
-
-            for (i = 16; i < 10000; i++)
-            {
-                foreach(Clone vp in virtualPlayers)
-                {
-                    vp.play(point);
-                }
-                UCB currentData = findUpperConfident();
-                currentData.NbPlayed++;
-                currentData.Winning = currentData.Winning - currentData.Card.Value;
-                if (winAgainstClone(point, currentData.Card))
-                {
-                    currentData.Winning = currentData.Winning + point.Value + foo;
-                    currentData.nbOfWin++;
-                }
-                foreach (UCB d in data)
-                    d.confidentCalculation(i);
-            }*/
-
-            for (int i = 0; i < 1000; i++) { 
-                foreach (UCB d in data)
+            for (int i = 0; i < 10000; i++) { 
+                foreach (Data d in data)
                 {
                     d.NbPlayed++;
                     foreach (Clone vp in virtualPlayers)
@@ -252,25 +208,30 @@ namespace StupidVulture.GameCore.Players
                         d.Winning = d.Winning + point.Value;
                         d.nbOfWin++;
                     }
-                    d.testCalculation(point.Value);
+                    d.probabilityCalculation(point.Value);
                     d.averageCalculation();
                 }
             }
 
-            foreach (UCB d in data)
-            {
-                Console.WriteLine("Carte " + d.Card.Value + " - Confiance: " + d.Confident+" / Average: "+d.Average+" / NbPlayer :"+d.NbPlayed+" / Winning: "+d.Winning+" / Test 2: "+d.test2);
-            }
-            
-            Console.WriteLine("===================================================================================================================");
             virtualPlayers.Clear();
-            //UCB CurrentUCB = findUpperConfident();
-            //UCB CurrentUCB = findUpperAverage();
-            UCB CurrentUCB = findUpperTest2();
-            CurrentPlayerCard = CurrentUCB.Card;
+            Data CurrentData = findUpperTest2();
+            CurrentPlayerCard = CurrentData.Card;
             data.Clear();
             RemainingCards.Remove(CurrentPlayerCard);
             return CurrentPlayerCard;
+        }
+
+
+
+
+        public override PlayerCard play(PointCard point)
+        {
+            if (difficulty == Difficulty.EASY)
+                return playEasy(point);
+            if (difficulty == Difficulty.MEDIUM)
+                return playMedium(point);
+            else
+                return playHard(point);
         
         }
 
@@ -363,31 +324,31 @@ namespace StupidVulture.GameCore.Players
         }
 
 
-        public UCB findUpperConfident()
+        public Data findUpperConfident()
         {
-            UCB tmp = data[0];
-            foreach (UCB d in data)
+            Data tmp = data[0];
+            foreach (Data d in data)
                 if (tmp.Confident < d.Confident)
                     tmp = d;
             return tmp;
         }
 
 
-        public UCB findUpperAverage()
+        public Data findUpperAverage()
         {
-            UCB tmp = data[0];
-            foreach (UCB d in data)
+            Data tmp = data[0];
+            foreach (Data d in data)
                 if (tmp.Average < d.Average)
                     tmp = d;
             return tmp;
         }
 
 
-        public UCB findUpperTest2()
+        public Data findUpperTest2()
         {
-            UCB tmp = data[0];
-            foreach (UCB d in data)
-                if (tmp.test2 < d.test2)
+            Data tmp = data[0];
+            foreach (Data d in data)
+                if (tmp.probaEstimation < d.probaEstimation)
                     tmp = d;
             return tmp;
         }

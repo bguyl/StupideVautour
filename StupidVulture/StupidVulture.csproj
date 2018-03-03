@@ -64,7 +64,7 @@
     <Compile Include="GameCore\Engine.cs" />
     <Compile Include="GameCore\Players\AI.cs" />
     <Compile Include="GameCore\Players\AI_Tools\Clone.cs" />
-    <Compile Include="GameCore\Players\AI_Tools\UCB.cs" />
+    <Compile Include="GameCore\Players\AI_Tools\Data.cs" />
     <Compile Include="GameCore\Players\Human.cs" />
     <Compile Include="GameCore\Players\Player.cs" />
     <Compile Include="Program.cs" />
